@@ -1,12 +1,14 @@
 ﻿using AzureManagementLib.Models;
 using Microsoft.Azure.Management.Fluent;
-using Microsoft.Azure.Management.Resource.Fluent.Core;
 using Microsoft.Azure.Management.Sql.Fluent;
+using Microsoft.Azure.Management.Sql.Fluent.SqlServer.Databases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AzureManagementLib.ExtensionMethods;
+using AzureManagementLib.Models.Interfaces;
 
 namespace AzureManagementLib.Services
 {
@@ -14,7 +16,7 @@ namespace AzureManagementLib.Services
     {
         protected IAzure AuthenticatedAzure { get; private set; }
 
-        List<ISqlDatabase> sqlDatabases;
+        IReadOnlyList<ISqlDatabase> sqlDatabases;
 
         public SqlDatabaseService(IAzure azure)
         {
@@ -22,26 +24,21 @@ namespace AzureManagementLib.Services
             sqlDatabases = new List<ISqlDatabase>();
         }
 
-
-        public async Task<IList<SqlDatabaseModel>> GetResourcesAsync()
+        public async Task<IList<ISqlDatabaseModel>> GetResourcesAsync()
         {
 
             var sqlServers =
-              await Task.Run(() => { return AuthenticatedAzure.SqlServers.List(); })
-                  .ConfigureAwait(false);
+             await AuthenticatedAzure.SqlServers.ListAsync(true);
 
-            foreach(var server in sqlServers)
+  
+            foreach (var sqlServer in sqlServers)
             {
-                sqlDatabases.AddRange(server.Databases.List());
+                sqlDatabases.Concat<ISqlDatabase>(sqlServer.Databases.List());
             }
 
-            var returnList = new List<SqlDatabaseModel>();
-            foreach (var sqlDatabase in sqlDatabases)
-            {
-                returnList.Add(new SqlDatabaseModel(sqlDatabase));
-            }
-
-            return returnList;
+            return sqlDatabases.ConvertToList<ISqlDatabase, ISqlDatabaseModel>
+                ((ISqlDatabase database) => { return new SqlDatabaseModel(database); });
+            
         }
     }
 }

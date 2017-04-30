@@ -1,5 +1,4 @@
 ﻿using Microsoft.Azure.Management.Fluent;
-using Microsoft.Azure.Management.Resource.Fluent.Core;
 using Microsoft.Azure.Management.Sql.Fluent;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System;
@@ -9,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using AzureManagementLib.Models;
 using AzureManagementLib.Services;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
+using AzureManagementLib.ExtensionMethods;
+using AzureManagementLib.Models.Interfaces;
 
 namespace AzureManagementLib
 {
@@ -18,7 +20,7 @@ namespace AzureManagementLib
 
         protected IAzure AuthenticatedAzure { get; private set; }
 
-        PagedList<ISqlServer> sqlServers;
+        IPagedCollection<ISqlServer> sqlServers;
 
         public SqlServerService(IAzure azure)
         {
@@ -26,20 +28,14 @@ namespace AzureManagementLib
         }
 
 
-       public async Task<IList<SqlServerModel>> GetResourcesAsync()
+       public async Task<IList<ISqlServerModel>> GetResourcesAsync()
         {
-            var returnList = new List<SqlServerModel>();
 
-            sqlServers =
-              await Task.Run(() => { return AuthenticatedAzure.SqlServers.List(); })
-                  .ConfigureAwait(false);
+            sqlServers = await AuthenticatedAzure.SqlServers.ListAsync();
 
-            foreach (var sqlServer in sqlServers)
-            {
-                returnList.Add(new SqlServerModel(sqlServer));
-            }
-
-            return returnList;
+            return sqlServers.ConvertToList<ISqlServer, ISqlServerModel>(
+                (ISqlServer server) => { return new SqlServerModel(server); }
+                );
         }
 
 

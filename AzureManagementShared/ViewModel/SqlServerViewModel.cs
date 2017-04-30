@@ -1,4 +1,5 @@
-﻿using AzureManagementLib.ModelView;
+﻿//using AzureManagementLib.ModelView;
+using AzureManagementLib.Models;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;

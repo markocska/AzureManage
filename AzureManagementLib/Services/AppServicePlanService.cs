@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using AzureManagementLib.Models;
 using Microsoft.Azure.Management.AppService.Fluent;
-using Microsoft.Azure.Management.Resource.Fluent.Core;
 using Microsoft.Azure.Management.Fluent;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
+using AzureManagementLib.ExtensionMethods;
+using AzureManagementLib.Models.Interfaces;
 
 namespace AzureManagementLib.Services
 {
@@ -14,22 +16,18 @@ namespace AzureManagementLib.Services
     {
         protected IAzure AuthenticatedAzure { get; private set; }
 
-        PagedList<IAppServicePlan> sqlServicePlans;
+        IPagedCollection<IAppServicePlan> sqlServicePlans;
 
-        public Task<IList<AppServicePlanModel>> GetResourcesAsync()
+        public async Task<IList<IAppServicePlanModel>> GetResourcesAsync()
         {
-            var returnList = new List<AppServicePlanModel>();
 
-            sqlServicePlans =
-              await Task.Run(() => { return AuthenticatedAzure.AppServices.AppServicePlans.; })
-                  .ConfigureAwait(false);
+            sqlServicePlans = await AuthenticatedAzure.AppServices.AppServicePlans.ListAsync();
 
-            foreach (var sqlServer in sqlServers)
-            {
-                returnList.Add(new SqlServerModel(sqlServer));
-            }
 
-            return returnList;
+           return sqlServicePlans.ConvertToList<IAppServicePlan,IAppServicePlanModel>(
+                (IAppServicePlan plan) => { return new AppServicePlanModel(plan);
+                });
+
         }
 
         public AppServicePlanService(IAzure azure)

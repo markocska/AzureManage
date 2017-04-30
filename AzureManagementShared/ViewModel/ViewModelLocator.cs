@@ -19,6 +19,7 @@ namespace AzureManagementShared
 
         public static readonly string sqlServerListPageKey = "SqlServerListPage";
         public static readonly string sqlServerDetailsPageKey = "SqlServerDetailsPage";
+        
 
         public MainViewModel Main
         {

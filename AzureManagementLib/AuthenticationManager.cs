@@ -12,15 +12,12 @@ using Microsoft.Azure.Management.Compute.Fluent.Models;
 using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Management.KeyVault.Fluent;
 using Microsoft.Azure.Management.KeyVault.Fluent.Models;
-using Microsoft.Azure.Management.Resource.Fluent.Authentication;
-using Microsoft.Azure.Management.Resource.Fluent.Core;
-using Microsoft.Azure.Management.Resource.Fluent.Core.ResourceActions;
-using Microsoft.Azure.Management.Resource.Fluent;
 using Microsoft.Rest;
 using Microsoft.Rest.Azure.Authentication;
-using static Microsoft.Azure.Management.Resource.Fluent.Core.RestClient;
 using Microsoft.Rest.TransientFaultHandling;
 using Microsoft.Azure.Management.Sql.Fluent.Models;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
+using Microsoft.Azure.Management.ResourceManager.Fluent;
 
 namespace AzureManagementLib
 {
