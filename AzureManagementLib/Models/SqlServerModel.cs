@@ -1,6 +1,5 @@
 ﻿using AzureManagementLib.Models;
 using AzureManagementLib.Models.Interfaces;
-using Microsoft.Azure.Management.Resource.Fluent.Core;
 using Microsoft.Azure.Management.Sql.Fluent;
 using System;
 using System.Collections.Generic;

@@ -11,6 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureGui", "AzureGui\AzureG
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		AzureManagementShared\AzureManagementShared.projitems*{a464705e-01a7-44de-9b50-2ce45582a651}*SharedItemsImports = 4
 		AzureManagementShared\AzureManagementShared.projitems*{b653c3a1-273d-4c78-888d-daba4de6ea11}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

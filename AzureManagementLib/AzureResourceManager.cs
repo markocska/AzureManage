@@ -20,7 +20,7 @@ namespace AzureManagementLib
             get
             {
                 return _sqlServerService
-                    ?? new SqlServerService(AuthenticatedAzure);
+                    ?? (_sqlServerService = new SqlServerService(AuthenticatedAzure));
             }
         }
   
@@ -36,12 +36,12 @@ namespace AzureManagementLib
 
         //}
 
-        public void changeSubscription()
+        public void ChangeSubscription()
         {
 
         }
 
-        public void changeTenant()
+        public void ChangeTenant()
         {
 
         }

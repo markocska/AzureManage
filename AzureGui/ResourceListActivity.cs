@@ -9,6 +9,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using AzureManagementLib.Models;
+using AzureManagementShared;
+using AzureGui;
 //using AzureManagementShared.ViewModel;
 //using AzureManagementLib.Models;
 //using AzureManagementShared;
@@ -18,8 +21,8 @@ namespace HelloAndroid
 {
     [Activity(Label = "Resource List")]
     public class ResourceListActivity<T,K> : Activity
-        //where T : IAzureResource
-        //where K : AzureViewModelBase
+        where T : IAzureResource
+        where K : AzureViewModelBase
     {
         //public AzureListViewModel<T,K> ResourceListViewModel
         //{
@@ -29,6 +32,11 @@ namespace HelloAndroid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            SetContentView(Resource.Layout.ResourceGroup);
+
+
+
             
             // Create your application here
         }

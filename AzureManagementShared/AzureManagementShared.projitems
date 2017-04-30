@@ -9,6 +9,7 @@
     <Import_RootNamespace>AzureManagementShared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AppServicePlanViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AzureViewModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AzureListViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />

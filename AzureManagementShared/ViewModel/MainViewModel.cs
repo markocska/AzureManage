@@ -24,7 +24,7 @@ namespace AzureManagementShared.ViewModel
             get
             {
                 return _navigateToPage
-                    ?? (new RelayCommand<string>(
+                    ?? ( _navigateToPage = new RelayCommand<string>(
                         page =>
                         {
                             if (!NavigateToPageCommand.CanExecute(page))
@@ -43,7 +43,7 @@ namespace AzureManagementShared.ViewModel
             get
             {
                 return _loginCommand
-                    ?? (new RelayCommand<PlatformParameters>(
+                    ?? (_loginCommand = new RelayCommand<PlatformParameters>(
                         async (PlatformParameters platformParams) =>
                         {
 #if __ANDROID__
@@ -53,6 +53,14 @@ namespace AzureManagementShared.ViewModel
                         }
                         ));
             }
+        }
+
+        public MainViewModel(
+            INavigationService navigationService,
+            AzureResourceManager resourceManager)
+        {
+            this._navigationService = navigationService;
+            this.resourceManager = resourceManager;
         }
     }
 }

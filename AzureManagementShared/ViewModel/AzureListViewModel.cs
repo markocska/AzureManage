@@ -18,7 +18,7 @@ namespace AzureManagementShared.ViewModel
 
         private readonly IAzureService<T> _azureService;
         private readonly INavigationService _navigationService;
-        private bool _isLoading;
+        private bool _isLoading=false;
         private RelayCommand _refreshCommand;
         private RelayCommand<K> _showDetailsCommand;
 
@@ -73,7 +73,7 @@ namespace AzureManagementShared.ViewModel
                             }
 
                             _navigationService.NavigateTo(
-                                ViewModelLocator.searchPageByViewModelType(
+                                ViewModelLocator.SearchPageByType(
                                     typeof(K)),resource);
                         },
                         resource => resource != null));

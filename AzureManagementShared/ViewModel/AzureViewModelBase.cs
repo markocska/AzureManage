@@ -19,7 +19,7 @@ namespace AzureManagementShared
 
         public string Name { get { return azureResource.Name; } }
 
-        public string Location { get { return azureResource.Location; } }
+        public string Location { get { return azureResource.Region; } }
 
         public string ResourceGroup { get { return azureResource.ResourceGroupName; } }
 

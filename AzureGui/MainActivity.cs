@@ -2,18 +2,13 @@
 using Android.App;
 using Android.Content;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-//using AzureManagementLib;
-//using Microsoft.IdentityModel.Clients.ActiveDirectory;
-//using System.Collections.Generic;
-//using System.Net.Http;
-//using Android.Support.V7.Widget;
 using System.Threading.Tasks;
-using System.Threading;
-//using HelloAndroid.Adapters;
-//using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using AzureManagementShared.ViewModel;
+using AzureManagementShared;
+using Android.Widget;
+using AzureManagementLib;
 
 namespace AzureManager
 {
@@ -21,14 +16,14 @@ namespace AzureManager
     public class MainActivity : Activity
     {
         int count = 1;
-        //PlatformParameters platformParam;
-        
+        PlatformParameters platformParam;
+
         //public MainViewModel MainViewModel
         //{
         //    get { return ViewModelLocator.MainViewModel; }
         //}
 
-        
+
 
 
         protected async override void OnCreate(Bundle bundle)
@@ -36,7 +31,7 @@ namespace AzureManager
 
             base.OnCreate(bundle);
 
-          //  platformParam = new PlatformParameters(this, true);
+            platformParam = new PlatformParameters(this, true);
 
          
 
@@ -59,12 +54,10 @@ namespace AzureManager
             await LoginHandler();
             try
             {
-               // sqlServerList = await azureResourceManager.SqlDbManager.GetSqlServersAsync().ConfigureAwait(false);
+               
                 RunOnUiThread(() =>
                 {
-                //    sqlServerAdapter = new SqlServerAdapter(sqlServerList);
-
-                  //  mRecyclerView.SetAdapter(sqlServerAdapter);
+                
                 });
             }
             catch (Exception e)
@@ -86,7 +79,7 @@ namespace AzureManager
             RunOnUiThread(() => { dialog = alertBuilder.Show(); });
             try
             {
-              //  azureResourceManager = await AuthenticationManager.Authenticate(platformParam);
+              var azureResourceManager = await AuthenticationManager.Authenticate(platformParam);
             }
             catch (Exception e)
             {

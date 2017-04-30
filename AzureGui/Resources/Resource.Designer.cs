@@ -26,6 +26,9 @@ namespace AzureGui
 		
 		public static void UpdateIdValues()
 		{
+			global::Microsoft.IdentityModel.Clients.ActiveDirectory.Resource.Id.agentWebView = global::AzureGui.Resource.Id.agentWebView;
+			global::Microsoft.IdentityModel.Clients.ActiveDirectory.Resource.Layout.WebAuthenticationBroker = global::AzureGui.Resource.Layout.WebAuthenticationBroker;
+			global::Microsoft.IdentityModel.Clients.ActiveDirectory.Resource.String.ApplicationName = global::AzureGui.Resource.String.ApplicationName;
 		}
 		
 		public partial class Attribute
@@ -57,11 +60,108 @@ namespace AzureGui
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f050005
+			public const int actionMenuView1 = 2131034117;
+			
+			// aapt resource value: 0x7f050016
+			public const int agentWebView = 2131034134;
+			
+			// aapt resource value: 0x7f050000
+			public const int appServicePlanImage = 2131034112;
+			
+			// aapt resource value: 0x7f05000a
+			public const int appServicePlanListButton = 2131034122;
+			
+			// aapt resource value: 0x7f050002
+			public const int appServicePlanLocation = 2131034114;
+			
+			// aapt resource value: 0x7f050001
+			public const int appServicePlanName = 2131034113;
+			
+			// aapt resource value: 0x7f050003
+			public const int appServiceResourceGroupName = 2131034115;
+			
+			// aapt resource value: 0x7f050004
+			public const int appServiceSubscriptionName = 2131034116;
+			
+			// aapt resource value: 0x7f050007
+			public const int optionsButton = 2131034119;
+			
+			// aapt resource value: 0x7f05000b
+			public const int resourceList = 2131034123;
+			
+			// aapt resource value: 0x7f050006
+			public const int searchTestView = 2131034118;
+			
+			// aapt resource value: 0x7f05000c
+			public const int sqlDatabaseImage = 2131034124;
+			
+			// aapt resource value: 0x7f050009
+			public const int sqlDatabaseListButton = 2131034121;
+			
+			// aapt resource value: 0x7f05000e
+			public const int sqlDatabaseLocation = 2131034126;
+			
+			// aapt resource value: 0x7f05000d
+			public const int sqlDatabaseName = 2131034125;
+			
+			// aapt resource value: 0x7f05000f
+			public const int sqlDatabaseResourceGroupName = 2131034127;
+			
+			// aapt resource value: 0x7f050010
+			public const int sqlDatabaseSubscriptionName = 2131034128;
+			
+			// aapt resource value: 0x7f050011
+			public const int sqlServerImage = 2131034129;
+			
+			// aapt resource value: 0x7f050008
+			public const int sqlServerListButton = 2131034120;
+			
+			// aapt resource value: 0x7f050013
+			public const int sqlServerLocation = 2131034131;
+			
+			// aapt resource value: 0x7f050012
+			public const int sqlServerName = 2131034130;
+			
+			// aapt resource value: 0x7f050014
+			public const int sqlServerResourceGroupName = 2131034132;
+			
+			// aapt resource value: 0x7f050015
+			public const int sqlServerSubscriptionName = 2131034133;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int AppServicePlan = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Main = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int ResourceGroup = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int SqlDatabase = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int SqlServer = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int WebAuthenticationBroker = 2130903045;
 			
 			static Layout()
 			{
@@ -76,11 +176,11 @@ namespace AzureGui
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
-			
 			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			public const int ApplicationName = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int Hello = 2130968577;
 			
 			static String()
 			{

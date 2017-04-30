@@ -2007,10 +2007,10 @@
       "type": "package",
       "path": "microsoft.identitymodel.logging/1.1.2",
       "files": [
-        "Microsoft.IdentityModel.Logging.1.1.2.nupkg.sha512",
-        "Microsoft.IdentityModel.Logging.nuspec",
         "lib/net451/Microsoft.IdentityModel.Logging.dll",
-        "lib/netstandard1.4/Microsoft.IdentityModel.Logging.dll"
+        "lib/netstandard1.4/Microsoft.IdentityModel.Logging.dll",
+        "microsoft.identitymodel.logging.1.1.2.nupkg.sha512",
+        "microsoft.identitymodel.logging.nuspec"
       ]
     },
     "Microsoft.IdentityModel.Tokens/5.1.2": {
@@ -2018,12 +2018,12 @@
       "type": "package",
       "path": "microsoft.identitymodel.tokens/5.1.2",
       "files": [
-        "Microsoft.IdentityModel.Tokens.5.1.2.nupkg.sha512",
-        "Microsoft.IdentityModel.Tokens.nuspec",
         "lib/net451/Microsoft.IdentityModel.Tokens.dll",
         "lib/net451/Microsoft.IdentityModel.Tokens.xml",
         "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.dll",
-        "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.xml"
+        "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.xml",
+        "microsoft.identitymodel.tokens.5.1.2.nupkg.sha512",
+        "microsoft.identitymodel.tokens.nuspec"
       ]
     },
     "Microsoft.NETCore.Jit/1.0.2": {
@@ -2187,11 +2187,11 @@
       "type": "package",
       "path": "microsoft.rest.clientruntime.azure/3.3.5",
       "files": [
-        "Microsoft.Rest.ClientRuntime.Azure.3.3.5.nupkg.sha512",
-        "Microsoft.Rest.ClientRuntime.Azure.nuspec",
         "lib/net45/Microsoft.Rest.ClientRuntime.Azure.dll",
         "lib/netstandard1.1/Microsoft.Rest.ClientRuntime.Azure.dll",
-        "lib/netstandard1.5/Microsoft.Rest.ClientRuntime.Azure.dll"
+        "lib/netstandard1.5/Microsoft.Rest.ClientRuntime.Azure.dll",
+        "microsoft.rest.clientruntime.azure.3.3.5.nupkg.sha512",
+        "microsoft.rest.clientruntime.azure.nuspec"
       ]
     },
     "Microsoft.Rest.ClientRuntime.Azure.Authentication/2.2.12": {
@@ -4786,8 +4786,6 @@
       "type": "package",
       "path": "system.security.claims/4.3.0",
       "files": [
-        "System.Security.Claims.4.3.0.nupkg.sha512",
-        "System.Security.Claims.nuspec",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -4815,7 +4813,9 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._"
+        "ref/xamarinwatchos10/_._",
+        "system.security.claims.4.3.0.nupkg.sha512",
+        "system.security.claims.nuspec"
       ]
     },
     "System.Security.Cryptography.Algorithms/4.3.0": {
@@ -4862,8 +4862,6 @@
       "type": "package",
       "path": "system.security.cryptography.csp/4.3.0",
       "files": [
-        "System.Security.Cryptography.Csp.4.3.0.nupkg.sha512",
-        "System.Security.Cryptography.Csp.nuspec",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -4884,7 +4882,9 @@
         "runtimes/unix/lib/netstandard1.3/System.Security.Cryptography.Csp.dll",
         "runtimes/win/lib/net46/System.Security.Cryptography.Csp.dll",
         "runtimes/win/lib/netcore50/_._",
-        "runtimes/win/lib/netstandard1.3/System.Security.Cryptography.Csp.dll"
+        "runtimes/win/lib/netstandard1.3/System.Security.Cryptography.Csp.dll",
+        "system.security.cryptography.csp.4.3.0.nupkg.sha512",
+        "system.security.cryptography.csp.nuspec"
       ]
     },
     "System.Security.Cryptography.Encoding/4.3.0": {
@@ -5012,8 +5012,6 @@
       "type": "package",
       "path": "system.security.principal/4.3.0",
       "files": [
-        "System.Security.Principal.4.3.0.nupkg.sha512",
-        "System.Security.Principal.nuspec",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5061,7 +5059,9 @@
         "ref/xamarinios10/_._",
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._"
+        "ref/xamarinwatchos10/_._",
+        "system.security.principal.4.3.0.nupkg.sha512",
+        "system.security.principal.nuspec"
       ]
     },
     "System.Security.Principal.Windows/4.3.0": {
@@ -5859,19 +5859,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Microsoft.Azure.Management.AppService.Fluent >= 1.0.0",
-      "Microsoft.Azure.Management.Batch.Fluent >= 1.0.0",
-      "Microsoft.Azure.Management.Cdn.Fluent >= 1.0.0",
-      "Microsoft.Azure.Management.Compute.Fluent >= 1.0.0",
-      "Microsoft.Azure.Management.Dns.Fluent >= 1.0.0",
       "Microsoft.Azure.Management.Fluent >= 1.0.0",
-      "Microsoft.Azure.Management.KeyVault.Fluent >= 1.0.0",
-      "Microsoft.Azure.Management.Network.Fluent >= 1.0.0",
-      "Microsoft.Azure.Management.Redis.Fluent >= 1.0.0",
-      "Microsoft.Azure.Management.ResourceManager.Fluent >= 1.0.0",
-      "Microsoft.Azure.Management.Sql.Fluent >= 1.0.0",
-      "Microsoft.Azure.Management.Storage.Fluent >= 1.0.0",
-      "Microsoft.Azure.Management.TrafficManager.Fluent >= 1.0.0",
       "Microsoft.IdentityModel.Clients.ActiveDirectory >= 3.13.9",
       "Microsoft.NETCore.Platforms >= 1.1.0",
       "Microsoft.NETCore.Portable.Compatibility >= 1.0.1",
@@ -5897,19 +5885,7 @@
       "projectStyle": "ProjectJson"
     },
     "dependencies": {
-      "Microsoft.Azure.Management.AppService.Fluent": "1.0.0",
-      "Microsoft.Azure.Management.Batch.Fluent": "1.0.0",
-      "Microsoft.Azure.Management.Cdn.Fluent": "1.0.0",
-      "Microsoft.Azure.Management.Compute.Fluent": "1.0.0",
-      "Microsoft.Azure.Management.Dns.Fluent": "1.0.0",
       "Microsoft.Azure.Management.Fluent": "1.0.0",
-      "Microsoft.Azure.Management.KeyVault.Fluent": "1.0.0",
-      "Microsoft.Azure.Management.Network.Fluent": "1.0.0",
-      "Microsoft.Azure.Management.Redis.Fluent": "1.0.0",
-      "Microsoft.Azure.Management.ResourceManager.Fluent": "1.0.0",
-      "Microsoft.Azure.Management.Sql.Fluent": "1.0.0",
-      "Microsoft.Azure.Management.Storage.Fluent": "1.0.0",
-      "Microsoft.Azure.Management.TrafficManager.Fluent": "1.0.0",
       "Microsoft.IdentityModel.Clients.ActiveDirectory": "3.13.9",
       "Microsoft.NETCore.Platforms": "1.1.0",
       "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
