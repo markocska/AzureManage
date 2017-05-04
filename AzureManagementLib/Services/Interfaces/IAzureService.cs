@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AzureManagementLib.Services
 {
-    public interface IAzureService<K> 
-        where K : IAzureResource
+    public interface IAzureService<T>
+        where T : IAzureResource
     {
-        Task<IList<K>> GetResourcesAsync();
+        Task<IList<T>> GetResourcesAsync();
     }
 }

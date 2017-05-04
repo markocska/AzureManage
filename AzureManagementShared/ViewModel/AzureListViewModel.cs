@@ -8,10 +8,12 @@ using System.Collections.ObjectModel;
 using System.Text;
 using AzureManagementLib.Models;
 using Microsoft.Practices.ServiceLocation;
+using AzureManagementShared.ViewModel.ResourceConstructor;
+using AzureManagementLib.ExtensionMethods;
 
 namespace AzureManagementShared.ViewModel
 {
-    public class AzureListViewModel<T, K> : ViewModelBase
+    public class AzureListViewModel<T,K> : ViewModelBase
         where T : IAzureResource
         where K : AzureViewModelBase
     {
@@ -22,7 +24,8 @@ namespace AzureManagementShared.ViewModel
         private RelayCommand _refreshCommand;
         private RelayCommand<K> _showDetailsCommand;
 
-        Func<T, K> resourceConstructor;
+        Func<T, K> viewModelConstructor;
+
 
         public ObservableCollection<K> Resources { get; private set; }
 
@@ -38,14 +41,11 @@ namespace AzureManagementShared.ViewModel
 
                             try
                             {
-                                var resourceList = await _azureService.GetResourcesAsync();
+                                var modelList = await _azureService.GetResourcesAsync();
 
-                                foreach (var resource in resourceList)
-                                {
-                                    //TODO szebben
-                                    Resources.Add(resourceConstructor(resource));
-                                }
-
+                                Resources= new ObservableCollection<K>(
+                                    modelList.ConvertToList<T, K>(viewModelConstructor)
+                                    );
                             }
                             catch (Exception ex)
                             {
@@ -85,13 +85,15 @@ namespace AzureManagementShared.ViewModel
         public AzureListViewModel(
             INavigationService navigationService,
             IAzureService<T> azureService,
-            Func<T,K> resourceConstructor
+            Func<T,K> viewModelConstructor
             ) 
         {
             _azureService = azureService;
             _navigationService = navigationService;
-            this.resourceConstructor = resourceConstructor;
+            this.viewModelConstructor = viewModelConstructor;
+
             Resources = new ObservableCollection<K>();
+
         }
 
 

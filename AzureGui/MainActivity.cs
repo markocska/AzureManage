@@ -9,61 +9,48 @@ using AzureManagementShared.ViewModel;
 using AzureManagementShared;
 using Android.Widget;
 using AzureManagementLib;
+using AzureGui;
+using GalaSoft.MvvmLight.Helpers;
 
-namespace AzureManager
+namespace AzureGui
 {
     [Activity(Label = "AzureGui", MainLauncher = true, Icon = "@drawable/icon")]
-    public class MainActivity : Activity
+    public  partial class MainActivity 
     {
         int count = 1;
         PlatformParameters platformParam;
 
-        //public MainViewModel MainViewModel
-        //{
-        //    get { return ViewModelLocator.MainViewModel; }
-        //}
-
-
+        public MainViewModel MVM
+        {
+            get { return App.Locator.Main; }
+        }
 
 
         protected async override void OnCreate(Bundle bundle)
         {
 
             base.OnCreate(bundle);
+            SetContentView(Resource.Layout.Main);
 
             platformParam = new PlatformParameters(this, true);
 
-         
+            SqlDatabaseListButton.Click += (object sender, EventArgs args) =>
+            {
+                MVM.NavigateToPageCommand.Execute(ViewModelLocator.sqlDatabaseListPageKey);
+            };
 
-            //Button sqlServerListButton = FindViewById<Button>(Resource.Id.sqlServerListButton);
-            //Button sqlDatabaseListButton = FindViewById<Button>(Resource.Id.sqlDatabaseListButton);
-            //Button appServicesListButton = FindViewById<Button>(Resource.Id.appServicesListButton);
+            SqlServerListButton.Click += (object sender, EventArgs args) =>
+            {
+                MVM.NavigateToPageCommand.Execute(ViewModelLocator.sqlServerListPageKey);
+            };
 
-            // optionsButton.Click += (object sender, EventArgs e) =>
-            //{
-            //     //Dictionary<string,string> dict = await AuthenticationManager.GetAccessTokenAsync("lucu", platformParam);
-            //     try
-            //    {
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        string exc = ex.Message;
-            //    }
-            //};
+            AppServicesListButton.Click += (object sender, EventArgs args) =>
+            {
+                MVM.NavigateToPageCommand.Execute(ViewModelLocator.appServicePlanListPageKey);
+            };
 
             await LoginHandler();
-            try
-            {
-               
-                RunOnUiThread(() =>
-                {
-                
-                });
-            }
-            catch (Exception e)
-            {
-
-            }
+      
 
         }
 
@@ -103,8 +90,10 @@ namespace AzureManager
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-          //  AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
+            AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
         }
+
+
     }
 }
 

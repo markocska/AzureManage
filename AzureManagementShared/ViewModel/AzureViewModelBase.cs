@@ -6,12 +6,13 @@ using GalaSoft.MvvmLight;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
 using AzureManagementLib.Models;
+using AzureManagementShared.ViewModel.Interfaces;
 
 namespace AzureManagementShared
 {
-     public abstract class AzureViewModelBase : ViewModelBase
+     public abstract class AzureViewModelBase : ViewModelBase, IAzureViewModelBase
     {
-        IAzureResource azureResource;
+        protected IAzureResource azureResource;
         public void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             RaisePropertyChanged(propertyName);
@@ -19,7 +20,7 @@ namespace AzureManagementShared
 
         public string Name { get { return azureResource.Name; } }
 
-        public string Location { get { return azureResource.Region; } }
+        public string Region { get { return azureResource.Region; } }
 
         public string ResourceGroup { get { return azureResource.ResourceGroupName; } }
 
@@ -29,6 +30,7 @@ namespace AzureManagementShared
         {
             this.azureResource = azureResource;
         }
+
 
     }
 }

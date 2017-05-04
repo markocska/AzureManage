@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using AzureManagementLib.Models;
+using AzureManagementLib.Models.Interfaces;
 
 namespace AzureManagementShared.ViewModel
 {
     public class SqlDatabaseViewModel : AzureViewModelBase
     {
-        SqlDatabaseModel sqlDatabase;
-        public SqlDatabaseViewModel(SqlDatabaseModel sqlDatabase) : base(sqlDatabase)
+        ISqlDatabaseModel sqlDatabase;
+        public SqlDatabaseViewModel(ISqlDatabaseModel sqlDatabase) 
+            : base(sqlDatabase)
         {
             this.sqlDatabase = sqlDatabase;
         }

@@ -12,7 +12,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AppServicePlanViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AzureViewModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\AzureListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Interfaces\IAzureViewModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Factories\ViewModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ResourceLists\AppServicePlanListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ResourceLists\SqlDatabaseListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ResourceLists\SqlServerListViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\SqlDatabaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\SqlServerViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />

@@ -92,8 +92,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="DatabaseResourceListActivity.cs" />
+    <Compile Include="Helpers\ActivityBaseEx.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="ResourceListActivity.cs" />
+    <Compile Include="MainActivity.ui.cs" />
+    <Compile Include="Interfaces\IResourceListActivity.cs" />
+    <Compile Include="ResourceListActivityBase.cs" />
+    <Compile Include="ResourceListActivityBase.ui.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

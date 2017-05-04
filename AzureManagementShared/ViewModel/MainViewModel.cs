@@ -19,7 +19,7 @@ namespace AzureManagementShared.ViewModel
 
         private AzureResourceManager resourceManager;
 
-        private RelayCommand<string> NavigateToPageCommand
+        public RelayCommand<string> NavigateToPageCommand
         {
             get
             {
@@ -38,7 +38,7 @@ namespace AzureManagementShared.ViewModel
             }
         }
         
-        private RelayCommand<PlatformParameters> LoginCommand
+        public RelayCommand<PlatformParameters> LoginCommand
         {
             get
             {

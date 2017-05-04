@@ -26,11 +26,11 @@ namespace AzureManagementLib.Services
 
         public async Task<IList<ISqlDatabaseModel>> GetResourcesAsync()
         {
-
+            
             var sqlServers =
              await AuthenticatedAzure.SqlServers.ListAsync(true);
 
-  
+
             foreach (var sqlServer in sqlServers)
             {
                 sqlDatabases.Concat<ISqlDatabase>(sqlServer.Databases.List());
@@ -38,7 +38,9 @@ namespace AzureManagementLib.Services
 
             return sqlDatabases.ConvertToList<ISqlDatabase, ISqlDatabaseModel>
                 ((ISqlDatabase database) => { return new SqlDatabaseModel(database); });
-            
+
         }
+
+       
     }
 }

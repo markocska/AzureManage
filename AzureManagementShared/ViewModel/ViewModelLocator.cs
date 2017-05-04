@@ -61,8 +61,11 @@ namespace AzureManagementShared
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             SimpleIoc.Default.Register<ISqlServerService, SqlServerService>();
+            SimpleIoc.Default.Register<ISqlDatabaseService, SqlDatabaseService>();
+            SimpleIoc.Default.Register<IAppServicePlanService, AppServicePlanService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
+
 
             pages = new Dictionary<string, string>
             {

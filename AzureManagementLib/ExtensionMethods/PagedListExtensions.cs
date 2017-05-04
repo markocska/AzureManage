@@ -22,5 +22,9 @@ namespace AzureManagementLib.ExtensionMethods
 
             return list;
         }
+
+            
+
+
     }
 }

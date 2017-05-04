@@ -10,5 +10,6 @@ namespace AzureManagementLib.Services
 {
     public interface ISqlDatabaseService : IAzureService<ISqlDatabaseModel>
     {
+  
     }
 }

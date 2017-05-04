@@ -14,12 +14,12 @@ using AzureManagementLib.Models;
 using AzureManagementShared.ViewModel;
 using GalaSoft.MvvmLight.Ioc;
 
-namespace HelloAndroid
+namespace AzureGui
 {
     public static class App
     {
         private static ViewModelLocator _locator;
-        private static ViewModelLocator Locator
+        public static ViewModelLocator Locator
         {
             get
             {

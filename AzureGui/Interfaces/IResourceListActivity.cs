@@ -12,33 +12,24 @@ using Android.Widget;
 using AzureManagementLib.Models;
 using AzureManagementShared;
 using AzureGui;
+using AzureManagementShared.ViewModel;
+using AzureGui.Helpers;
 //using AzureManagementShared.ViewModel;
 //using AzureManagementLib.Models;
 //using AzureManagementShared;
 //using AzureManagementLib.ModelView;
 
-namespace HelloAndroid
+namespace AzureGui
 {
-    [Activity(Label = "Resource List")]
-    public class ResourceListActivity<T,K> : Activity
+
+    public interface IResourceListActivity<T,K> 
         where T : IAzureResource
         where K : AzureViewModelBase
     {
-        //public AzureListViewModel<T,K> ResourceListViewModel
-        //{
-        //    get;
-        //    set;
-        //}
-        protected override void OnCreate(Bundle savedInstanceState)
+        AzureListViewModel<T, K> ResourceListViewModel
         {
-            base.OnCreate(savedInstanceState);
-
-            SetContentView(Resource.Layout.ResourceGroup);
-
-
-
-            
-            // Create your application here
+            get;
         }
+      
     }
 }
