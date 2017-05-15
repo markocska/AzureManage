@@ -2,10 +2,16 @@
 <!--For all properties see: http://developer.android.com/guide/topics/resources/menu-resource.html-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   
-  <item android:id="@+id/action_search"
+  <item android:id="@+id/action_name"
+        android:title="Name"/>
+  <item android:id="@+id/action_resourceGroup"
          android:showAsAction="always"
-        android:text="Search"
-         android:actionViewClass="android.widget.SearchView"/>
+        android:title="Resource Group"/>
+  <item android:id="@+id/action_type"
+        android:title="Type"/>
+  <item android:id="@+id/action_region"
+         android:showAsAction="always"
+        android:title="Region"/>
   
 </menu>
 

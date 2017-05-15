@@ -145,7 +145,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\searchMenu.xml" />
+    <AndroidResource Include="Resources\layout\sortByMenu.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\popupMenu.xml" />

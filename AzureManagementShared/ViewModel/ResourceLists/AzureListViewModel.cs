@@ -12,6 +12,7 @@ using AzureManagementLib.ExtensionMethods;
 using AzureManagementShared.ViewModel.Interfaces;
 using System.Collections;
 using AzureManagementShared.ViewModel.Services;
+using System.Reflection;
 
 namespace AzureManagementShared.ViewModel
 {
@@ -23,7 +24,7 @@ namespace AzureManagementShared.ViewModel
         private bool _isLoading = false;
         private RelayCommand _refreshCommand;
         private RelayCommand<K> _showDetailsCommand;
-        private RelayCommand<K> _sortCommand;
+        private RelayCommand<SortingService.AzureParams> _sortByCommand;
 
 
         public ObservableCollection<K> Resources { get; private set; }
@@ -72,13 +73,12 @@ namespace AzureManagementShared.ViewModel
             }
         }
 
-        public RelayCommand SortCommand => _refreshCommand
-                   ?? (_refreshCommand = new RelayCommand(
-                       async () =>
+        public RelayCommand<SortingService.AzureParams> SortByCommand => _sortByCommand
+                   ?? (_sortByCommand = new RelayCommand<SortingService.AzureParams>(
+                       async property =>
                        {
-                           Resources.Clear();
-                           _isLoading = true;
-                           RaisePropertyChanged(() => Resources);
+                           SortingService.Sort(Resources, property);
+                                                 
                            try
                            {
                                var modelList = await ViewModelService.GetViewModelsAsync<K>();

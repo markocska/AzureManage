@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using AzureManagementShared.ViewModel.Services;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,6 +15,11 @@ namespace AzureManagementShared.ViewModel.Interfaces
         }
 
         RelayCommand<K> ShowDetailsCommand
+        {
+            get;
+        }
+
+        RelayCommand<SortingService.AzureParams> SortByCommand
         {
             get;
         }
