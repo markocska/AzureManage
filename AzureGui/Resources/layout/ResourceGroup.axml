@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <AutoCompleteTextView
-            android:text="Search"
+            android:text=""
             android:id="@+id/searchTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

@@ -15,6 +15,8 @@ using AzureManagementShared;
 using AzureGui.Helpers;
 using AzureManagementShared.ViewModel.Interfaces;
 using AzureManagementShared.ViewModel.Services;
+using System.Timers;
+using System.Diagnostics;
 
 namespace AzureGui
 {
@@ -23,6 +25,8 @@ namespace AzureGui
     {
 
         protected IAzureListViewModel<K> resourceListViewModel;
+
+        private int searchBoxLastTested;
 
 
         protected void Setup(IAzureListViewModel<K> resourceListViewModel)
@@ -36,6 +40,7 @@ namespace AzureGui
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ResourceGroup);
 
+
             OptionsButton.Click += (s, args) =>
             {
                 PopupMenu menu = new PopupMenu(this, OptionsButton);
@@ -47,6 +52,13 @@ namespace AzureGui
                 {
                     resourceListViewModel.RefreshCommand.Execute(true);
                 };
+            };
+
+            SearchTextView.TextChanged += (s, arg) =>
+            {
+                
+                    resourceListViewModel.SearchCommand.Execute(SearchTextView.Text);
+                
             };
 
             SortByButton.Click += (s, args) =>

@@ -23,5 +23,10 @@ namespace AzureManagementShared.ViewModel.Interfaces
         {
             get;
         }
+
+        RelayCommand<string> SearchCommand
+        {
+            get;
+        }
     }
 }

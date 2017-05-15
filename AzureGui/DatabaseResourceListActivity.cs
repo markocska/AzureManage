@@ -46,6 +46,7 @@ namespace AzureGui
         private View GetDatabaseAdapter(int position,SqlDatabaseViewModel model, View convertView)
         {
             convertView = LayoutInflater.Inflate(Resource.Layout.SqlDatabase, null);
+            convertView.Visibility = model.IsHidden ? ViewStates.Invisible : ViewStates.Visible;
 
             var image = convertView.FindViewById<ImageView>(Resource.Id.sqlDatabaseImage);
 

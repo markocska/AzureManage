@@ -31,6 +31,8 @@ namespace AzureManagementShared
             this.azureResource = azureResource;
         }
 
+        public bool IsHidden { get; set; } = false;
+
 
     }
 }

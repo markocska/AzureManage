@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ResourceLists\AppServicePlanListViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ResourceLists\SqlDatabaseListViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ResourceLists\SqlServerListViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Services\SearchingService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Services\SortingService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Services\ViewModelService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\SqlDatabaseViewModel.cs" />

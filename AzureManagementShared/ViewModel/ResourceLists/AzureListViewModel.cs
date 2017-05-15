@@ -94,24 +94,24 @@ namespace AzureManagementShared.ViewModel
                               
                        }));
 
-        //public RelayCommand<SortingService.AzureParams> SearchCommand => _searchCommand
-        //          ?? (_sortByCommand = new RelayCommand<SortingService.AzureParams>(
-        //              async property =>
-        //              {
-        //                  try
-        //                  {
-        //                      var sortedList = await SortingService.Sort(Resources, property);
-        //                      Resources.Clear();
-        //                      Resources.AddRange(sortedList);
-        //                      RaisePropertyChanged(() => Resources);
-        //                      _isLoading = false;
-        //                  }
-        //                  catch (Exception ex)
-        //                  {
+        public RelayCommand<string> SearchCommand => _searchCommand
+                  ?? (_searchCommand = new RelayCommand<string>(
+                      async searchParam =>
+                      {
+                          try
+                          {
+                              var searchedList = await SearchingService.Search(Resources, searchParam);
+                              Resources.Clear();
+                              Resources.AddRange(searchedList);
+                              RaisePropertyChanged(() => Resources);
+                              _isLoading = false;
+                          }
+                          catch (Exception ex)
+                          {
 
-        //                  }
+                          }
 
-        //              }));
+                      }));
 
 
         public AzureListViewModel(
