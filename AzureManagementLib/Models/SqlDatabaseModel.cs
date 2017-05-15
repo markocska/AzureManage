@@ -1,4 +1,5 @@
 ﻿using AzureManagementLib.Models.Interfaces;
+using AzureManagementLib.Services.Interfaces;
 using Microsoft.Azure.Management.Sql.Fluent;
 using System;
 using System.Collections.Generic;
@@ -8,21 +9,15 @@ using System.Threading.Tasks;
 
 namespace AzureManagementLib.Models
 {
-    public class SqlDatabaseModel : ISqlDatabaseModel
+    public class SqlDatabaseModel : AzureResource<ISqlDatabase>,ISqlDatabaseModel
     {
         private ISqlDatabase sqlDatabase;
 
-        public string Name => sqlDatabase.Name;
-
-        public string ResourceGroupName => sqlDatabase.ResourceGroupName;
-
-        public string Type => sqlDatabase.Type;
-
-        public string Region => sqlDatabase.RegionName;
-
         public string Status { get { return sqlDatabase.Status; } }
 
-        internal SqlDatabaseModel(ISqlDatabase sqlDatabase)
+        internal SqlDatabaseModel(ISqlDatabase sqlDatabase, 
+            IAzureAccInfo accInfo) :
+            base(sqlDatabase,accInfo)
         {
             this.sqlDatabase = sqlDatabase;
         }

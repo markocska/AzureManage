@@ -7,10 +7,10 @@ using GalaSoft.MvvmLight.Views;
 
 namespace AzureManagementShared.ViewModel.ResourceLists
 {
-    public class AppServicePlanListViewModel : AzureListViewModel<IAppServicePlanModel, AppServicePlanViewModel>
+    public class AppServicePlanListViewModel : AzureListViewModel<AppServicePlanViewModel>
     {
-        public AppServicePlanListViewModel(INavigationService navigationService, IAppServicePlanService azureService) 
-            : base(navigationService, azureService, (IAppServicePlanModel model) => new AppServicePlanViewModel(model))
+        public AppServicePlanListViewModel(INavigationService navigationService) 
+            : base(navigationService)
         {
 
         }

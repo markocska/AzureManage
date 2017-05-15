@@ -1,5 +1,6 @@
 ﻿using AzureManagementLib.Models;
 using AzureManagementLib.Models.Interfaces;
+using AzureManagementLib.Services.Interfaces;
 using Microsoft.Azure.Management.Sql.Fluent;
 using System;
 using System.Collections.Generic;
@@ -9,24 +10,18 @@ using System.Threading.Tasks;
 
 namespace AzureManagementLib.Models
 {
-    public class SqlServerModel : ISqlServerModel
+    public class SqlServerModel : AzureResource<ISqlServer>, ISqlServerModel
     {
         private ISqlServer sqlServer;
 
-        public string Name { get { return sqlServer.Name; } }
-
-        public string ResourceGroupName { get { return sqlServer.ResourceGroupName; } }
-
-        public string Type { get { return sqlServer.Type; } }
-
-        public string Region { get { return sqlServer.RegionName; } }
-
-        public string Version {get { return sqlServer.Version; } }
-
-        internal SqlServerModel(ISqlServer sqlServer)
+        internal SqlServerModel(ISqlServer sqlServer,
+                                   IAzureAccInfo accInfo) :
+            base(sqlServer,accInfo)
         {
             this.sqlServer = sqlServer;
+           
         }
 
+        public string Version => sqlServer.Version;
     }
 }

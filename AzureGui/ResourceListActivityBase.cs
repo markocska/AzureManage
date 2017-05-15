@@ -13,15 +13,41 @@ using AzureManagementShared.ViewModel;
 using AzureManagementLib.Models;
 using AzureManagementShared;
 using AzureGui.Helpers;
+using AzureManagementShared.ViewModel.Interfaces;
 
 namespace AzureGui
 {
-    public partial class ResourceListActivityBase<T, K> : ActivityBaseEx, IResourceListActivity<T, K>
-        where T : IAzureResource
+    public abstract partial class ResourceListActivityBase<K> :  IResourceListActivity<K>
         where K : AzureViewModelBase
     {
-        public AzureListViewModel<T, K> ResourceListViewModel { get;  }
 
-        
+        protected IAzureListViewModel<K> resourceListViewModel;
+      
+     
+        protected void Setup(IAzureListViewModel<K> resourceListViewModel)
+        {
+            this.resourceListViewModel = resourceListViewModel;
+            
+        }
+
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.ResourceGroup);
+
+            OptionsButton.Click += (s, args) =>
+            {
+                PopupMenu menu = new PopupMenu(this, OptionsButton);
+                menu.MenuInflater.Inflate(Resource.Layout.popupMenu, menu.Menu);
+                menu.Show();
+
+
+                menu.MenuItemClick += (s1, arg1) =>
+                {
+                    resourceListViewModel.RefreshCommand.Execute(true);
+                };
+            };
+        }
+
     }
 }

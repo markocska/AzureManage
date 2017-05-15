@@ -9,30 +9,38 @@ using Microsoft.Azure.Management.Fluent;
 using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
 using AzureManagementLib.ExtensionMethods;
 using AzureManagementLib.Models.Interfaces;
+using AzureManagementLib.Services.Interfaces;
 
 namespace AzureManagementLib.Services
 {
-    public class AppServicePlanService : IAppServicePlanService
+    public static class AppServicePlanService  
     {
-        protected IAzure AuthenticatedAzure { get; private set; }
+        private static IDictionary<string, IAzure> AuthenticatedAzureList { get; set; }
 
-        IPagedCollection<IAppServicePlan> sqlServicePlans;
+        private static IList<IAppServicePlanModel> sqlServicePlans = new List<IAppServicePlanModel>();
 
-        public async Task<IList<IAppServicePlanModel>> GetResourcesAsync()
+        public static async Task<IList<IAppServicePlanModel>> GetResourcesAsync()
         {
 
-            sqlServicePlans = await AuthenticatedAzure.AppServices.AppServicePlans.ListAsync();
+            AuthenticatedAzureList = AzureTenantContainer.LoggedInTenants;
 
+            foreach (var azure in AuthenticatedAzureList)
+            {
+                
+                var plans = await azure.Value.AppServices.AppServicePlans.ListAsync();
 
-           return sqlServicePlans.ConvertToList<IAppServicePlan,IAppServicePlanModel>(
-                (IAppServicePlan plan) => { return new AppServicePlanModel(plan);
-                });
+                sqlServicePlans.AddRange(
+                    plans.ToList().ConvertToList<IAppServicePlan,IAppServicePlanModel>(
+                        new AzureAccInfo(azure.Key,azure.Value.SubscriptionId),
+                        (IAppServicePlan servicePlan,IAzureAccInfo accInfo) 
+                            => { return new AppServicePlanModel(servicePlan, accInfo); }
+                        )
+                    );
+            }
+
+            return sqlServicePlans;
 
         }
 
-        public AppServicePlanService(IAzure azure)
-        {
-            this.AuthenticatedAzure = azure;
-        }
     }
 }

@@ -51,6 +51,7 @@ namespace AzureManagementLib
                     var results = new Dictionary<string, string>();
                     results.Add("token", authResult.AccessToken);
                     results.Add("tenant", authResult.TenantId);
+                    
 
 
                     return results;
@@ -62,7 +63,7 @@ namespace AzureManagementLib
            
         }
 
-        public static async Task<AzureResourceManager> Authenticate(PlatformParameters platformParams)
+        public static async Task Authenticate(PlatformParameters platformParams)
         {
             
             try { 
@@ -80,20 +81,22 @@ namespace AzureManagementLib
                 .WithEnvironment(AzureEnvironment.AzureGlobalCloud).WithDelegatingHandler(new HttpLoggingDelegatingHandler()).Build();
                 
 
-            var lucuka = authDataDict["tenant"];
+            var tenantName = authDataDict["tenant"];
     
 
-                var azure = Azure.Authenticate(restClient, lucuka);
+                var azure = Azure.Authenticate(restClient, tenantName);
                 var subs = azure.Subscriptions.List();
 
-                var azure1 = Azure.Authenticate(restClient, lucuka).WithSubscription(subs.First().SubscriptionId);
+                var azure1 = Azure.Authenticate(restClient, tenantName).WithSubscription(subs.First().SubscriptionId);
 
 
                 // var list = azure1.SqlServers.List()[1];
                 //        var subs=azure.Subscriptions;
-                AuthenticationManager.AuthenticatedAzure = azure1;
+               // AuthenticationManager.AuthenticatedAzure = azure1;
 
-                return new AzureResourceManager(azure1);
+                AzureTenantContainer.RegistrateTenant(tenantName, azure1);
+
+   
             }
              catch (Exception ex)
             {

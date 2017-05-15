@@ -7,14 +7,13 @@ using GalaSoft.MvvmLight.Views;
 
 namespace AzureManagementShared.ViewModel.ResourceLists
 {
-    public class SqlServerListViewModel : AzureListViewModel<ISqlServerModel, SqlServerViewModel>
+    public class SqlServerListViewModel : AzureListViewModel<SqlServerViewModel>
     {
-        public SqlServerListViewModel(INavigationService navigationService, ISqlServerService azureService) 
-            : base(navigationService, azureService,(ISqlServerModel model) => new SqlServerViewModel(model))
+        public SqlServerListViewModel(INavigationService navigationService) 
+            : base(navigationService)
         {
            
         }
-
 
       
     }

@@ -5,23 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Azure.Management.AppService.Fluent;
 using AzureManagementLib.Models.Interfaces;
+using AzureManagementLib.Services.Interfaces;
 
 namespace AzureManagementLib.Models
 {
-    public class AppServicePlanModel : IAppServicePlanModel
+    public class AppServicePlanModel : AzureResource<IAppServicePlan>, IAppServicePlanModel
     {
         private IAppServicePlan appServicePlan;
 
-        public string Name => appServicePlan.Name;
-        public string ResourceGroupName => appServicePlan.ResourceGroupName;
-
-        public string Type => appServicePlan.Type;
-
-        public string Region => appServicePlan.RegionName;
-
         public int NumberOfWebApps => appServicePlan.NumberOfWebApps;
 
-        public AppServicePlanModel(IAppServicePlan appServicePlan) 
+        public AppServicePlanModel(IAppServicePlan appServicePlan,
+                                    IAzureAccInfo accInfo) :
+            base(appServicePlan,accInfo)
         {
             this.appServicePlan = appServicePlan;
         }

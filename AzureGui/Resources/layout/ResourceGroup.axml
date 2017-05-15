@@ -5,39 +5,29 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-    <ActionMenuView
-        android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/actionMenuView1">
+        android:orientation="horizontal">
         <AutoCompleteTextView
-            android:gravity="center"
             android:text="Search"
-            android:id="@+id/searchTestView"
-            android:layout_width="180.0dp"
+            android:id="@+id/searchTextView"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:width="150dp" />
+            android:layout_weight="0.5" />
+        <Button
+            android:text="Sort by"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/sortButton"
+            android:layout_weight="0.25" />
         <Button
             android:text="Options"
             android:id="@+id/optionsButton"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </ActionMenuView>
-    <Button
-        android:text="Sql Servers"
-        android:layout_width="match_parent"
-        android:layout_height="62.5dp"
-        android:id="@+id/sqlServerListButton" />
-    <Button
-        android:text="Sql Databases"
-        android:layout_width="match_parent"
-        android:layout_height="57.5dp"
-        android:id="@+id/sqlDatabaseListButton" />
-    <Button
-        android:text="App services"
-        android:layout_width="match_parent"
-        android:layout_height="58.5dp"
-        android:id="@+id/appServicePlanListButton" />
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25" />
+    </LinearLayout>
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"

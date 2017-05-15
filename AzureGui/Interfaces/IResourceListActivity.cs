@@ -22,14 +22,9 @@ using AzureGui.Helpers;
 namespace AzureGui
 {
 
-    public interface IResourceListActivity<T,K> 
-        where T : IAzureResource
+    public interface IResourceListActivity<K> 
         where K : AzureViewModelBase
     {
-        AzureListViewModel<T, K> ResourceListViewModel
-        {
-            get;
-        }
-      
+
     }
 }

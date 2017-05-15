@@ -11,31 +11,34 @@ using AzureManagementLib.Services;
 using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
 using AzureManagementLib.ExtensionMethods;
 using AzureManagementLib.Models.Interfaces;
+using AzureManagementLib.Services.Interfaces;
 
 namespace AzureManagementLib
 {
 
-    public class SqlServerService : ISqlServerService
-    {
+    public class SqlServerService     {
+        private static IDictionary<string,IAzure> AuthenticatedAzureList { get; set; }
 
-        protected IAzure AuthenticatedAzure { get; private set; }
+        private static IList<ISqlServerModel> sqlServers = new List<ISqlServerModel>();
 
-        IPagedCollection<ISqlServer> sqlServers;
-
-        public SqlServerService(IAzure azure)
+       public static async Task<IList<ISqlServerModel>> GetResourcesAsync()
         {
-            AuthenticatedAzure = azure;
-        }
+            AuthenticatedAzureList.Clear();
 
+            AuthenticatedAzureList = AzureTenantContainer.LoggedInTenants;
 
-       public async Task<IList<ISqlServerModel>> GetResourcesAsync()
-        {
+            foreach (var azure in AuthenticatedAzureList)
+            {
+                var list = await azure.Value.SqlServers.ListAsync();
+                sqlServers.AddRange(
+                    list.ConvertToList<ISqlServer,ISqlServerModel>(
+                     new AzureAccInfo(azure.Key,azure.Value.SubscriptionId),
+                    (ISqlServer server, IAzureAccInfo accInfo) => { return new SqlServerModel(server, accInfo); })
+                    );
+                
+            }
 
-            sqlServers = await AuthenticatedAzure.SqlServers.ListAsync();
-
-            return sqlServers.ConvertToList<ISqlServer, ISqlServerModel>(
-                (ISqlServer server) => { return new SqlServerModel(server); }
-                );
+            return sqlServers;
         }
 
 

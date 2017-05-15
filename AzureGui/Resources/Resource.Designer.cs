@@ -34,6 +34,39 @@ namespace AzureGui
 		public partial class Attribute
 		{
 			
+			// aapt resource value: 0x7f010000
+			public const int cardBackgroundColor = 2130771968;
+			
+			// aapt resource value: 0x7f010001
+			public const int cardCornerRadius = 2130771969;
+			
+			// aapt resource value: 0x7f010002
+			public const int cardElevation = 2130771970;
+			
+			// aapt resource value: 0x7f010003
+			public const int cardMaxElevation = 2130771971;
+			
+			// aapt resource value: 0x7f010005
+			public const int cardPreventCornerOverlap = 2130771973;
+			
+			// aapt resource value: 0x7f010004
+			public const int cardUseCompatPadding = 2130771972;
+			
+			// aapt resource value: 0x7f010006
+			public const int contentPadding = 2130771974;
+			
+			// aapt resource value: 0x7f01000a
+			public const int contentPaddingBottom = 2130771978;
+			
+			// aapt resource value: 0x7f010007
+			public const int contentPaddingLeft = 2130771975;
+			
+			// aapt resource value: 0x7f010008
+			public const int contentPaddingRight = 2130771976;
+			
+			// aapt resource value: 0x7f010009
+			public const int contentPaddingTop = 2130771977;
+			
 			static Attribute()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -44,11 +77,61 @@ namespace AzureGui
 			}
 		}
 		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f050000
+			public const int cardview_dark_background = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int cardview_light_background = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int cardview_shadow_end_color = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int cardview_shadow_start_color = 2131034115;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
+		public partial class Dimension
+		{
+			
+			// aapt resource value: 0x7f060000
+			public const int cardview_compat_inset_shadow = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int cardview_default_elevation = 2131099649;
+			
+			// aapt resource value: 0x7f060002
+			public const int cardview_default_radius = 2131099650;
+			
+			static Dimension()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Dimension()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
 			// aapt resource value: 0x7f020000
 			public const int Icon = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int sqlDatabase = 2130837505;
 			
 			static Drawable()
 			{
@@ -63,74 +146,86 @@ namespace AzureGui
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050005
-			public const int actionMenuView1 = 2131034117;
+			// aapt resource value: 0x7f080005
+			public const int actionMenuView1 = 2131230725;
 			
-			// aapt resource value: 0x7f050016
-			public const int agentWebView = 2131034134;
+			// aapt resource value: 0x7f08000b
+			public const int action_refresh = 2131230731;
 			
-			// aapt resource value: 0x7f050000
-			public const int appServicePlanImage = 2131034112;
+			// aapt resource value: 0x7f08000a
+			public const int action_search = 2131230730;
 			
-			// aapt resource value: 0x7f05000a
-			public const int appServicePlanListButton = 2131034122;
+			// aapt resource value: 0x7f08001a
+			public const int agentWebView = 2131230746;
 			
-			// aapt resource value: 0x7f050002
-			public const int appServicePlanLocation = 2131034114;
+			// aapt resource value: 0x7f080000
+			public const int appServicePlanImage = 2131230720;
 			
-			// aapt resource value: 0x7f050001
-			public const int appServicePlanName = 2131034113;
+			// aapt resource value: 0x7f080009
+			public const int appServicePlanListButton = 2131230729;
 			
-			// aapt resource value: 0x7f050003
-			public const int appServiceResourceGroupName = 2131034115;
+			// aapt resource value: 0x7f080002
+			public const int appServicePlanLocation = 2131230722;
 			
-			// aapt resource value: 0x7f050004
-			public const int appServiceSubscriptionName = 2131034116;
+			// aapt resource value: 0x7f080001
+			public const int appServicePlanName = 2131230721;
 			
-			// aapt resource value: 0x7f050007
-			public const int optionsButton = 2131034119;
+			// aapt resource value: 0x7f080003
+			public const int appServiceResourceGroupName = 2131230723;
 			
-			// aapt resource value: 0x7f05000b
-			public const int resourceList = 2131034123;
+			// aapt resource value: 0x7f080004
+			public const int appServiceSubscriptionName = 2131230724;
 			
-			// aapt resource value: 0x7f050006
-			public const int searchTestView = 2131034118;
+			// aapt resource value: 0x7f080006
+			public const int loginButton = 2131230726;
 			
-			// aapt resource value: 0x7f05000c
-			public const int sqlDatabaseImage = 2131034124;
+			// aapt resource value: 0x7f08000e
+			public const int optionsButton = 2131230734;
 			
-			// aapt resource value: 0x7f050009
-			public const int sqlDatabaseListButton = 2131034121;
+			// aapt resource value: 0x7f08000f
+			public const int resourceList = 2131230735;
 			
-			// aapt resource value: 0x7f05000e
-			public const int sqlDatabaseLocation = 2131034126;
+			// aapt resource value: 0x7f08000c
+			public const int searchTextView = 2131230732;
 			
-			// aapt resource value: 0x7f05000d
-			public const int sqlDatabaseName = 2131034125;
+			// aapt resource value: 0x7f08000d
+			public const int sortButton = 2131230733;
 			
-			// aapt resource value: 0x7f05000f
-			public const int sqlDatabaseResourceGroupName = 2131034127;
+			// aapt resource value: 0x7f080010
+			public const int sqlDatabaseImage = 2131230736;
 			
-			// aapt resource value: 0x7f050010
-			public const int sqlDatabaseSubscriptionName = 2131034128;
+			// aapt resource value: 0x7f080014
+			public const int sqlDatabaseIsActive = 2131230740;
 			
-			// aapt resource value: 0x7f050011
-			public const int sqlServerImage = 2131034129;
+			// aapt resource value: 0x7f080008
+			public const int sqlDatabaseListButton = 2131230728;
 			
-			// aapt resource value: 0x7f050008
-			public const int sqlServerListButton = 2131034120;
+			// aapt resource value: 0x7f080012
+			public const int sqlDatabaseLocation = 2131230738;
 			
-			// aapt resource value: 0x7f050013
-			public const int sqlServerLocation = 2131034131;
+			// aapt resource value: 0x7f080011
+			public const int sqlDatabaseName = 2131230737;
 			
-			// aapt resource value: 0x7f050012
-			public const int sqlServerName = 2131034130;
+			// aapt resource value: 0x7f080013
+			public const int sqlDatabaseResourceGroupName = 2131230739;
 			
-			// aapt resource value: 0x7f050014
-			public const int sqlServerResourceGroupName = 2131034132;
+			// aapt resource value: 0x7f080015
+			public const int sqlServerImage = 2131230741;
 			
-			// aapt resource value: 0x7f050015
-			public const int sqlServerSubscriptionName = 2131034133;
+			// aapt resource value: 0x7f080007
+			public const int sqlServerListButton = 2131230727;
+			
+			// aapt resource value: 0x7f080017
+			public const int sqlServerLocation = 2131230743;
+			
+			// aapt resource value: 0x7f080016
+			public const int sqlServerName = 2131230742;
+			
+			// aapt resource value: 0x7f080018
+			public const int sqlServerResourceGroupName = 2131230744;
+			
+			// aapt resource value: 0x7f080019
+			public const int sqlServerSubscriptionName = 2131230745;
 			
 			static Id()
 			{
@@ -152,16 +247,22 @@ namespace AzureGui
 			public const int Main = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int ResourceGroup = 2130903042;
+			public const int popupMenu = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int SqlDatabase = 2130903043;
+			public const int ResourceGroup = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int SqlServer = 2130903044;
+			public const int searchMenu = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int WebAuthenticationBroker = 2130903045;
+			public const int SqlDatabase = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int SqlServer = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int WebAuthenticationBroker = 2130903047;
 			
 			static Layout()
 			{
@@ -176,11 +277,11 @@ namespace AzureGui
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int ApplicationName = 2130968576;
+			// aapt resource value: 0x7f070000
+			public const int ApplicationName = 2131165184;
 			
-			// aapt resource value: 0x7f040001
-			public const int Hello = 2130968577;
+			// aapt resource value: 0x7f070001
+			public const int Hello = 2131165185;
 			
 			static String()
 			{
@@ -188,6 +289,98 @@ namespace AzureGui
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f040001
+			public const int Base_CardView = 2130968577;
+			
+			// aapt resource value: 0x7f040000
+			public const int CardView = 2130968576;
+			
+			// aapt resource value: 0x7f040002
+			public const int CardView_Dark = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int CardView_Light = 2130968579;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
+			{
+			}
+		}
+		
+		public partial class Styleable
+		{
+			
+			public static int[] CardView = new int[] {
+					16843071,
+					16843072,
+					2130771968,
+					2130771969,
+					2130771970,
+					2130771971,
+					2130771972,
+					2130771973,
+					2130771974,
+					2130771975,
+					2130771976,
+					2130771977,
+					2130771978};
+			
+			// aapt resource value: 1
+			public const int CardView_android_minHeight = 1;
+			
+			// aapt resource value: 0
+			public const int CardView_android_minWidth = 0;
+			
+			// aapt resource value: 2
+			public const int CardView_cardBackgroundColor = 2;
+			
+			// aapt resource value: 3
+			public const int CardView_cardCornerRadius = 3;
+			
+			// aapt resource value: 4
+			public const int CardView_cardElevation = 4;
+			
+			// aapt resource value: 5
+			public const int CardView_cardMaxElevation = 5;
+			
+			// aapt resource value: 7
+			public const int CardView_cardPreventCornerOverlap = 7;
+			
+			// aapt resource value: 6
+			public const int CardView_cardUseCompatPadding = 6;
+			
+			// aapt resource value: 8
+			public const int CardView_contentPadding = 8;
+			
+			// aapt resource value: 12
+			public const int CardView_contentPaddingBottom = 12;
+			
+			// aapt resource value: 9
+			public const int CardView_contentPaddingLeft = 9;
+			
+			// aapt resource value: 10
+			public const int CardView_contentPaddingRight = 10;
+			
+			// aapt resource value: 11
+			public const int CardView_contentPaddingTop = 11;
+			
+			static Styleable()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Styleable()
 			{
 			}
 		}

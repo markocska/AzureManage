@@ -41,9 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationManager.cs" />
-    <Compile Include="AzureResourceManager.cs" />
+    <Compile Include="AzureTenantManager.cs" />
+    <Compile Include="AzureTenantContainer.cs" />
     <Compile Include="ExtensionMethods\PagedListExtensions.cs" />
     <Compile Include="Models\AppServicePlanModel.cs" />
+    <Compile Include="Models\BaseClasses\AzureAccInfo.cs" />
+    <Compile Include="Models\BaseClasses\AzureResource.cs" />
     <Compile Include="Models\Interfaces\IAppServicePlanModel.cs" />
     <Compile Include="Models\Interfaces\IAzureResource.cs" />
     <Compile Include="Models\Interfaces\ISqlDatabaseModel.cs" />
@@ -52,7 +55,11 @@
     <Compile Include="Models\SqlServerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppServicePlanService.cs" />
+    <Compile Include="Services\AzureService.cs" />
+    <Compile Include="Services\Factories\AzureServiceFactory.cs" />
+    <Compile Include="Services\Factories\IAzureServiceFactory.cs" />
     <Compile Include="Services\Interfaces\IAppServicePlanService.cs" />
+    <Compile Include="Models\Interfaces\IAzureAccInfo.cs" />
     <Compile Include="Services\Interfaces\IAzureService.cs" />
     <Compile Include="Services\Interfaces\ISqlDatabaseService.cs" />
     <Compile Include="Services\Interfaces\ISqlServerService.cs" />

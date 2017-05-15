@@ -9,18 +9,26 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/actionMenuView1">
-        <AutoCompleteTextView
-            android:gravity="center"
-            android:text="Search"
-            android:id="@+id/searchTestView"
-            android:layout_width="180.0dp"
-            android:layout_height="wrap_content"
-            android:width="150dp" />
         <Button
-            android:text="Options"
-            android:id="@+id/optionsButton"
+            android:text="Login"
+            android:id="@+id/loginButton"
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </ActionMenuView>
+    <Button
+        android:text="Sql Servers"
+        android:layout_width="match_parent"
+        android:layout_height="62.5dp"
+        android:id="@+id/sqlServerListButton" />
+    <Button
+        android:text="Sql Databases"
+        android:layout_width="match_parent"
+        android:layout_height="57.5dp"
+        android:id="@+id/sqlDatabaseListButton" />
+    <Button
+        android:text="App services"
+        android:layout_width="match_parent"
+        android:layout_height="58.5dp"
+        android:id="@+id/appServicePlanListButton" />
 </LinearLayout>

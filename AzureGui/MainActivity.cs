@@ -22,7 +22,7 @@ namespace AzureGui
 
         public MainViewModel MVM
         {
-            get { return App.Locator.Main; }
+            get { return App.Locator.MVM; }
         }
 
 
@@ -33,6 +33,8 @@ namespace AzureGui
             SetContentView(Resource.Layout.Main);
 
             platformParam = new PlatformParameters(this, true);
+
+            MVM.LoginCommand.Execute(platformParam);
 
             SqlDatabaseListButton.Click += (object sender, EventArgs args) =>
             {
@@ -49,7 +51,12 @@ namespace AzureGui
                 MVM.NavigateToPageCommand.Execute(ViewModelLocator.appServicePlanListPageKey);
             };
 
-            await LoginHandler();
+            LoginButton.Click +=  (object sender, EventArgs args) =>
+            {
+                MVM.LoginCommand.Execute(platformParam);
+            };
+
+            //await LoginHandler();
       
 
         }
@@ -66,11 +73,11 @@ namespace AzureGui
             RunOnUiThread(() => { dialog = alertBuilder.Show(); });
             try
             {
-              var azureResourceManager = await AuthenticationManager.Authenticate(platformParam);
+                MVM.LoginCommand.Execute(platformParam);
             }
             catch (Exception e)
             {
-
+                dialog.SetMessage("An unfortunate error happenened." + e.Message);
             }
             finally
             {

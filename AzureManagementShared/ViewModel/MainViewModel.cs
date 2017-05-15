@@ -17,7 +17,15 @@ namespace AzureManagementShared.ViewModel
         private RelayCommand<PlatformParameters> _loginCommand;
         private RelayCommand<PlatformParameters> _logoutCommand;
 
-        private AzureResourceManager resourceManager;
+        private AzureTenantManager resourceManager;
+
+        public AzureTenantManager ResourceManager
+        {
+            get
+            {
+                return resourceManager;
+            }
+        }
 
         public RelayCommand<string> NavigateToPageCommand
         {
@@ -25,7 +33,7 @@ namespace AzureManagementShared.ViewModel
             {
                 return _navigateToPage
                     ?? ( _navigateToPage = new RelayCommand<string>(
-                        page =>
+                        (string page) =>
                         {
                             if (!NavigateToPageCommand.CanExecute(page))
                             {
@@ -48,7 +56,7 @@ namespace AzureManagementShared.ViewModel
                         {
 #if __ANDROID__
 
-                            resourceManager = await AuthenticationManager.Authenticate(platformParams);
+                             await AuthenticationManager.Authenticate(platformParams);
 #endif
                         }
                         ));
@@ -56,11 +64,10 @@ namespace AzureManagementShared.ViewModel
         }
 
         public MainViewModel(
-            INavigationService navigationService,
-            AzureResourceManager resourceManager)
+            INavigationService navigationService)
         {
             this._navigationService = navigationService;
-            this.resourceManager = resourceManager;
+          //this.resourceManager = resourceManager;
         }
     }
 }

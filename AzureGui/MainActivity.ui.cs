@@ -18,6 +18,7 @@ namespace AzureGui
         private Button _sqlDatabaseListButton;
         private Button _sqlServerListButton;
         private Button _appServicesListButton;
+        private Button _loginButton;
 
         public Button SqlDatabaseListButton
         {
@@ -45,6 +46,16 @@ namespace AzureGui
                 return _appServicesListButton
                     ?? (_appServicesListButton =
                     FindViewById<Button>(Resource.Id.sqlServerListButton));
+            }
+        }
+
+        public Button LoginButton
+        {
+            get
+            {
+                return _loginButton
+                    ?? (_loginButton =
+                    FindViewById<Button>(Resource.Id.loginButton));
             }
         }
     }

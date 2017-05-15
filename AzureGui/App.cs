@@ -28,13 +28,13 @@ namespace AzureGui
                     var nav = new NavigationService();
                     nav.Configure(
                             ViewModelLocator.sqlServerListPageKey,
-                             typeof(ResourceListActivity<SqlServerModel, SqlServerViewModel>));
+                             typeof(DatabaseResourceListActivity));
                     nav.Configure(
                             ViewModelLocator.sqlDatabaseListPageKey,
-                            typeof(ResourceListActivity<SqlDatabaseModel, SqlDatabaseViewModel>));
+                            typeof(DatabaseResourceListActivity));
                     nav.Configure(
                         ViewModelLocator.appServicePlanListPageKey,
-                        typeof(ResourceListActivity<AppServicePlanModel,AppServicePlanViewModel>));
+                        typeof(DatabaseResourceListActivity));
 
                     SimpleIoc.Default.Register<INavigationService>(() => nav);
 

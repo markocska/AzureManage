@@ -11,16 +11,58 @@ using Android.Views;
 using Android.Widget;
 using AzureManagementShared.ViewModel;
 using AzureManagementLib.Models.Interfaces;
+using AzureManagementShared.ViewModel.ResourceLists;
+using AzureManagementShared.ViewModel.Interfaces;
+using GalaSoft.MvvmLight.Helpers;
 
 namespace AzureGui
 {
-    public class DatabaseResourceListActivity : ResourceListActivityBase<ISqlDatabaseModel,SqlDatabaseViewModel>
+    [Activity]
+    public class DatabaseResourceListActivity : ResourceListActivityBase<SqlDatabaseViewModel>
     {
-        public AzureListViewModel<ISqlDatabaseModel, SqlDatabaseViewModel> ResourceListViewModel => ResourceListViewModel;
 
-        protected async override void OnCreate(Bundle bundle)
+        private SqlDatabaseListViewModel _databaseListViewModel;
+
+        private SqlDatabaseListViewModel DatabaseListViewModel
         {
-            
+            get
+            {
+                return _databaseListViewModel
+                    ?? (_databaseListViewModel = App.Locator.DatabasesViewModel
+                );
+            }
+        }
+
+        protected  override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+
+            Setup(DatabaseListViewModel);
+
+            ResourceList.Adapter = DatabaseListViewModel.Resources.GetAdapter(GetDatabaseAdapter);
+
+        }
+
+        private View GetDatabaseAdapter(int position,SqlDatabaseViewModel model, View convertView)
+        {
+            convertView = LayoutInflater.Inflate(Resource.Layout.SqlDatabase, null);
+
+            var image = convertView.FindViewById<ImageView>(Resource.Id.sqlDatabaseImage);
+
+            var name = convertView.FindViewById<TextView>(Resource.Id.sqlDatabaseName);
+            name.Text = model.Name;
+
+            var location = convertView.FindViewById<TextView>(Resource.Id.sqlDatabaseLocation);
+            location.Text = model.Region;
+
+            var resourceGroupName = convertView.FindViewById<TextView>(Resource.Id.sqlDatabaseResourceGroupName);
+            resourceGroupName.Text = model.ResourceGroup;
+
+            var isActive = convertView.FindViewById<TextView>(Resource.Id.sqlDatabaseIsActive);
+            isActive.Text = model.Status;
+
+
+            return convertView;
         }
     }
 }

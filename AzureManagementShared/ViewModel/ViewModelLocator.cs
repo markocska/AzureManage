@@ -1,7 +1,10 @@
 ﻿using AzureManagementLib;
 using AzureManagementLib.Services;
 using AzureManagementShared.ViewModel;
+using AzureManagementShared.ViewModel.Factories;
+using AzureManagementShared.ViewModel.ResourceLists;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
@@ -18,10 +21,7 @@ namespace AzureManagementShared
                 { typeof(SqlServerViewModel).FullName,sqlServerListPageKey}
             };
 
-        //private static readonly IDictionary<string, int> layouts = new Dictionary<string, int>
-        //{
-        //    {typeof() }
-        //};
+  
 
         public static readonly string sqlDatabaseListPageKey = "SqlDatabaseListPage";
         public static readonly string sqlDatabaseDetailsPageKey = "SqlDatabaseDetailsPage";
@@ -33,11 +33,35 @@ namespace AzureManagementShared
         public static readonly string appServicePlanDetailsPageKey = "AppServicePlanDetailsPage";
 
 
-        public MainViewModel Main
+        public MainViewModel MVM
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return ViewModelFactory.MainViewModel;
+            }
+        }
+
+        public SqlDatabaseListViewModel DatabasesViewModel
+        {
+            get
+            {
+                return ViewModelFactory.SqlDatabaseListViewModel;
+            }
+        }
+
+        public SqlServerListViewModel SqlServersViewModel
+        {
+            get
+            {
+                return ViewModelFactory.SqlServerListViewModel;
+            }
+        }
+
+        public AppServicePlanListViewModel AppServicePlansViewModel
+        {
+            get
+            {
+                return ViewModelFactory.AppServicePlanListViewModel;
             }
         }
 
@@ -53,19 +77,12 @@ namespace AzureManagementShared
 
         public static bool PageExists(string page)
         {
-            return pages.Values.Contains(page);
+            return true;
         }
 
         static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-
-            SimpleIoc.Default.Register<ISqlServerService, SqlServerService>();
-            SimpleIoc.Default.Register<ISqlDatabaseService, SqlDatabaseService>();
-            SimpleIoc.Default.Register<IAppServicePlanService, AppServicePlanService>();
-
-            SimpleIoc.Default.Register<MainViewModel>();
-
 
             pages = new Dictionary<string, string>
             {

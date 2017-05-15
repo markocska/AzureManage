@@ -9,38 +9,70 @@ using System.Text;
 using System.Threading.Tasks;
 using AzureManagementLib.ExtensionMethods;
 using AzureManagementLib.Models.Interfaces;
+using AzureManagementLib.Services.Interfaces;
+using System.Collections;
 
 namespace AzureManagementLib.Services
 {
-    public class SqlDatabaseService : ISqlDatabaseService
+    public static class SqlDatabaseService 
     {
-        protected IAzure AuthenticatedAzure { get; private set; }
+        private static IDictionary<string, IAzure> AuthenticatedAzureList { get; set; }
 
-        IReadOnlyList<ISqlDatabase> sqlDatabases;
+        private static List<ISqlDatabaseModel> sqlDatabases = new List<ISqlDatabaseModel>();
 
-        public SqlDatabaseService(IAzure azure)
+        public static async Task<IList<ISqlDatabaseModel>> GetResourcesAsync()
         {
-            AuthenticatedAzure = azure;
-            sqlDatabases = new List<ISqlDatabase>();
+            AuthenticatedAzureList = AzureTenantContainer.LoggedInTenants;
+
+
+            await Task.Run(async () =>
+                 {
+                     foreach (var azure in AuthenticatedAzureList)
+                     {
+                         var sqlServers =
+                        await azure.Value.SqlServers.ListAsync();
+
+                         IList<ISqlDatabase> databaseList;
+                         foreach (var sqlServer in sqlServers)
+                         {
+                             databaseList = sqlServer.Databases.List().ToList();
+
+                             sqlDatabases.AddRange(
+                             databaseList.ConvertToList<ISqlDatabase, ISqlDatabaseModel>(
+                                new AzureAccInfo(azure.Key, azure.Value.SubscriptionId),
+                                (ISqlDatabase database, IAzureAccInfo accInfo) =>
+                                {
+                                    return new SqlDatabaseModel(database, accInfo);
+                                }
+                             )
+                                 );
+
+                         }
+
+                     }
+                 }
+             );
+
+            sqlDatabases = sqlDatabases.Distinct(new DatabaseComparer()).ToList();
+
+
+            return sqlDatabases;
+
         }
 
-        public async Task<IList<ISqlDatabaseModel>> GetResourcesAsync()
+        class DatabaseComparer : IEqualityComparer<ISqlDatabaseModel>
         {
-            
-            var sqlServers =
-             await AuthenticatedAzure.SqlServers.ListAsync(true);
-
-
-            foreach (var sqlServer in sqlServers)
+            public bool Equals(ISqlDatabaseModel a, ISqlDatabaseModel b)
             {
-                sqlDatabases.Concat<ISqlDatabase>(sqlServer.Databases.List());
+                return a.Id == b.Id;
             }
 
-            return sqlDatabases.ConvertToList<ISqlDatabase, ISqlDatabaseModel>
-                ((ISqlDatabase database) => { return new SqlDatabaseModel(database); });
-
+            public int GetHashCode(ISqlDatabaseModel obj)
+            {
+                return obj.GetHashCode();
+            }
         }
 
-       
+
     }
 }
