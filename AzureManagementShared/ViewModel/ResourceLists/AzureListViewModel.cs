@@ -23,6 +23,7 @@ namespace AzureManagementShared.ViewModel
         private bool _isLoading = false;
         private RelayCommand _refreshCommand;
         private RelayCommand<K> _showDetailsCommand;
+        private RelayCommand<K> _sortCommand;
 
 
         public ObservableCollection<K> Resources { get; private set; }
@@ -70,6 +71,30 @@ namespace AzureManagementShared.ViewModel
                         resource => resource != null));
             }
         }
+
+        public RelayCommand SortCommand => _refreshCommand
+                   ?? (_refreshCommand = new RelayCommand(
+                       async () =>
+                       {
+                           Resources.Clear();
+                           _isLoading = true;
+                           RaisePropertyChanged(() => Resources);
+                           try
+                           {
+                               var modelList = await ViewModelService.GetViewModelsAsync<K>();
+                               Resources.AddRange(modelList);
+                           }
+
+                           catch (Exception ex)
+                           {
+                               var dialog = ServiceLocator.Current.GetInstance<IDialogService>();
+                               dialog.ShowError(ex, "Error when refreshing :-(", "OK", null);
+                           }
+                           RaisePropertyChanged(() => Resources);
+                           _isLoading = false;
+                       }
+                       ));
+
 
 
 

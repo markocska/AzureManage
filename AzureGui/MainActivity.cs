@@ -34,7 +34,7 @@ namespace AzureGui
 
             platformParam = new PlatformParameters(this, true);
 
-            MVM.LoginCommand.Execute(platformParam);
+           // MVM.LoginCommand.Execute(platformParam);
 
             SqlDatabaseListButton.Click += (object sender, EventArgs args) =>
             {
@@ -56,7 +56,7 @@ namespace AzureGui
                 MVM.LoginCommand.Execute(platformParam);
             };
 
-            //await LoginHandler();
+            await LoginHandler();
       
 
         }

@@ -23,9 +23,8 @@ namespace AzureManagementLib
 
        public static async Task<IList<ISqlServerModel>> GetResourcesAsync()
         {
-            AuthenticatedAzureList.Clear();
-
             AuthenticatedAzureList = AzureTenantContainer.LoggedInTenants;
+            sqlServers.Clear();
 
             foreach (var azure in AuthenticatedAzureList)
             {

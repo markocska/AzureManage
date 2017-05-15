@@ -27,6 +27,7 @@ namespace AzureManagementLib.Services
 
             await Task.Run(async () =>
                  {
+                     sqlDatabases.Clear();
                      foreach (var azure in AuthenticatedAzureList)
                      {
                          var sqlServers =
