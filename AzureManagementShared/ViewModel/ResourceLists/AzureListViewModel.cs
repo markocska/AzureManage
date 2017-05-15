@@ -13,6 +13,7 @@ using AzureManagementShared.ViewModel.Interfaces;
 using System.Collections;
 using AzureManagementShared.ViewModel.Services;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace AzureManagementShared.ViewModel
 {
@@ -25,6 +26,7 @@ namespace AzureManagementShared.ViewModel
         private RelayCommand _refreshCommand;
         private RelayCommand<K> _showDetailsCommand;
         private RelayCommand<SortingService.AzureParams> _sortByCommand;
+        public RelayCommand<string> _searchCommand;
 
 
         public ObservableCollection<K> Resources { get; private set; }
@@ -76,32 +78,46 @@ namespace AzureManagementShared.ViewModel
         public RelayCommand<SortingService.AzureParams> SortByCommand => _sortByCommand
                    ?? (_sortByCommand = new RelayCommand<SortingService.AzureParams>(
                        async property =>
-                       {
-                           SortingService.Sort(Resources, property);
-                                                 
-                           try
-                           {
-                               var modelList = await ViewModelService.GetViewModelsAsync<K>();
-                               Resources.AddRange(modelList);
-                           }
-
+                       {                     
+                               try
+                               {
+                                   var sortedList = await SortingService.Sort(Resources, property);
+                                   Resources.Clear();
+                                   Resources.AddRange(sortedList);
+                                   RaisePropertyChanged(() => Resources);
+                                   _isLoading = false;
+                               }
                            catch (Exception ex)
                            {
-                               var dialog = ServiceLocator.Current.GetInstance<IDialogService>();
-                               dialog.ShowError(ex, "Error when refreshing :-(", "OK", null);
+                              
                            }
-                           RaisePropertyChanged(() => Resources);
-                           _isLoading = false;
-                       }
-                       ));
+                              
+                       }));
 
+        //public RelayCommand<SortingService.AzureParams> SearchCommand => _searchCommand
+        //          ?? (_sortByCommand = new RelayCommand<SortingService.AzureParams>(
+        //              async property =>
+        //              {
+        //                  try
+        //                  {
+        //                      var sortedList = await SortingService.Sort(Resources, property);
+        //                      Resources.Clear();
+        //                      Resources.AddRange(sortedList);
+        //                      RaisePropertyChanged(() => Resources);
+        //                      _isLoading = false;
+        //                  }
+        //                  catch (Exception ex)
+        //                  {
 
+        //                  }
+
+        //              }));
 
 
         public AzureListViewModel(
             INavigationService navigationService
             )
-        {   
+        {
 
             _navigationService = navigationService;
 
