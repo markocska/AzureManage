@@ -41,6 +41,7 @@ namespace AzureGui
 
             ResourceList.Adapter = DatabaseListViewModel.Resources.GetAdapter(GetDatabaseAdapter);
 
+
         }
 
         private View GetDatabaseAdapter(int position,SqlDatabaseViewModel model, View convertView)
@@ -61,6 +62,8 @@ namespace AzureGui
 
             var isActive = convertView.FindViewById<TextView>(Resource.Id.sqlDatabaseIsActive);
             isActive.Text = model.Status;
+
+           
 
 
             return convertView;

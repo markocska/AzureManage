@@ -167,8 +167,8 @@ namespace AzureGui
 			// aapt resource value: 0x7f080012
 			public const int action_type = 2131230738;
 			
-			// aapt resource value: 0x7f08001e
-			public const int agentWebView = 2131230750;
+			// aapt resource value: 0x7f080020
+			public const int agentWebView = 2131230752;
 			
 			// aapt resource value: 0x7f080000
 			public const int appServicePlanImage = 2131230720;
@@ -188,6 +188,9 @@ namespace AzureGui
 			// aapt resource value: 0x7f080004
 			public const int appServiceSubscriptionName = 2131230724;
 			
+			// aapt resource value: 0x7f08001e
+			public const int imageView = 2131230750;
+			
 			// aapt resource value: 0x7f080006
 			public const int loginButton = 2131230726;
 			
@@ -206,20 +209,20 @@ namespace AzureGui
 			// aapt resource value: 0x7f080014
 			public const int sqlDatabaseImage = 2131230740;
 			
-			// aapt resource value: 0x7f080018
-			public const int sqlDatabaseIsActive = 2131230744;
+			// aapt resource value: 0x7f080017
+			public const int sqlDatabaseIsActive = 2131230743;
 			
 			// aapt resource value: 0x7f080008
 			public const int sqlDatabaseListButton = 2131230728;
 			
-			// aapt resource value: 0x7f080016
-			public const int sqlDatabaseLocation = 2131230742;
+			// aapt resource value: 0x7f080018
+			public const int sqlDatabaseLocation = 2131230744;
 			
 			// aapt resource value: 0x7f080015
 			public const int sqlDatabaseName = 2131230741;
 			
-			// aapt resource value: 0x7f080017
-			public const int sqlDatabaseResourceGroupName = 2131230743;
+			// aapt resource value: 0x7f080016
+			public const int sqlDatabaseResourceGroupName = 2131230742;
 			
 			// aapt resource value: 0x7f080019
 			public const int sqlServerImage = 2131230745;
@@ -238,6 +241,9 @@ namespace AzureGui
 			
 			// aapt resource value: 0x7f08001d
 			public const int sqlServerSubscriptionName = 2131230749;
+			
+			// aapt resource value: 0x7f08001f
+			public const int textView = 2131230751;
 			
 			static Id()
 			{
@@ -274,7 +280,10 @@ namespace AzureGui
 			public const int SqlServer = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int WebAuthenticationBroker = 2130903047;
+			public const int test = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int WebAuthenticationBroker = 2130903048;
 			
 			static Layout()
 			{
