@@ -40,31 +40,43 @@ namespace AzureGui
             Setup(DatabaseListViewModel);
 
             ResourceList.Adapter = DatabaseListViewModel.Resources.GetAdapter(GetDatabaseAdapter);
-
-
         }
 
         private View GetDatabaseAdapter(int position,SqlDatabaseViewModel model, View convertView)
         {
             convertView = LayoutInflater.Inflate(Resource.Layout.SqlDatabase, null);
-            convertView.Visibility = model.IsHidden ? ViewStates.Invisible : ViewStates.Visible;
 
-            var image = convertView.FindViewById<ImageView>(Resource.Id.sqlDatabaseImage);
+            convertView = base.GetResourceAdapter(position, model, convertView);
 
-            var name = convertView.FindViewById<TextView>(Resource.Id.sqlDatabaseName);
-            name.Text = model.Name;
+            var image = convertView.FindViewById<ImageView>(Resource.Id.resourceImage);
+            image.SetImageResource(Resource.Drawable.sqlDatabase);
 
             var location = convertView.FindViewById<TextView>(Resource.Id.sqlDatabaseLocation);
             location.Text = model.Region;
 
-            var resourceGroupName = convertView.FindViewById<TextView>(Resource.Id.sqlDatabaseResourceGroupName);
-            resourceGroupName.Text = model.ResourceGroup;
-
             var isActive = convertView.FindViewById<TextView>(Resource.Id.sqlDatabaseIsActive);
             isActive.Text = model.Status;
 
-           
+            var dbActionButton = convertView.FindViewById<Button>(Resource.Id.resourceActionButton);
 
+            dbActionButton.Click += (arg1, s) =>
+            {                
+                    PopupMenu menu = new PopupMenu(this, dbActionButton);
+                    menu.Inflate(Resource.Layout.databasePopupMenu);
+                menu.Inflate(Resource.Layout.resourcePopupMenu);
+
+                menu = base.RegisterQuickActions(menu);
+
+                menu.MenuItemClick += (d, arg) =>
+                {
+                    if (arg.Item.ItemId == Resource.Id.action_test)
+                    {
+                        return;
+                    }
+                };
+                menu.Show();
+
+            };
 
             return convertView;
         }

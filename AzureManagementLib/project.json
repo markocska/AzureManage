@@ -1,15 +1,17 @@
 ﻿{
   "supports": {},
   "dependencies": {
+    "Microsoft.Azure.Management.Batch.Fluent": "1.0.0",
     "Microsoft.Azure.Management.Fluent": "1.0.0",
+    "Microsoft.Azure.Management.Sql.Fluent": "1.0.0",
     "Microsoft.IdentityModel.Clients.ActiveDirectory": "3.13.9",
     "Microsoft.NETCore.Platforms": "1.1.0",
     "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
-    "Microsoft.Rest.ClientRuntime": "2.3.6",
+    "Microsoft.Rest.ClientRuntime": "2.3.7",
     "NETStandard.Library": "1.6.1",
     "System.ComponentModel": "4.3.0",
     "System.Diagnostics.Tools": "4.3.0",
-    "System.Net.Http": "4.3.1",
+    "System.Net.Http": "4.3.2",
     "System.Runtime.Serialization.Primitives": "4.3.0",
     "System.Threading.Tasks": "4.3.0"
   },

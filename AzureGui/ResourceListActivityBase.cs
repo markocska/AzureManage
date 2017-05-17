@@ -17,9 +17,11 @@ using AzureManagementShared.ViewModel.Interfaces;
 using AzureManagementShared.ViewModel.Services;
 using System.Timers;
 using System.Diagnostics;
+using Android.Util;
 
 namespace AzureGui
 {
+    [Activity]
     public abstract partial class ResourceListActivityBase<K> : IResourceListActivity<K>
         where K : AzureViewModelBase
     {
@@ -98,6 +100,35 @@ namespace AzureGui
 
                 };
             };
+        }
+
+        protected View GetResourceAdapter(int position, AzureViewModelBase model, View convertView)
+        {
+            convertView.Visibility = model.IsHidden ? ViewStates.Invisible : ViewStates.Visible;
+
+            var name = convertView.FindViewById<TextView>(Resource.Id.resourceName);
+            name.Text = model.Name;
+
+            var resourceGroupName = convertView.FindViewById<TextView>(Resource.Id.resourceGroupName);
+            resourceGroupName.Text = model.ResourceGroup;
+
+            return convertView;
+        }
+
+        protected PopupMenu RegisterQuickActions(PopupMenu popup)
+        {
+            popup.MenuItemClick += (s, arg) =>
+            {
+                if (arg.Item.ItemId == Resource.Id.action_favourites)
+                {
+                    return;    
+                }
+                if (arg.Item.ItemId == Resource.Id.action_delete)
+                {
+                    return;
+                }
+            };
+            return popup;
         }
 
     }

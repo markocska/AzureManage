@@ -382,17 +382,17 @@
       "Microsoft.NETCore.Windows.ApiSets/1.0.1": {
         "type": "package"
       },
-      "Microsoft.Rest.ClientRuntime/2.3.6": {
+      "Microsoft.Rest.ClientRuntime/2.3.7": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.1",
-          "Newtonsoft.Json": "[9.0.1, 10.0.0)"
+          "Newtonsoft.Json": "9.0.1"
         },
         "compile": {
-          "lib/netstandard1.5/Microsoft.Rest.ClientRuntime.dll": {}
+          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.5/Microsoft.Rest.ClientRuntime.dll": {}
+          "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll": {}
         }
       },
       "Microsoft.Rest.ClientRuntime.Azure/3.3.5": {
@@ -948,7 +948,7 @@
           "ref/netstandard1.3/System.Linq.Expressions.dll": {}
         }
       },
-      "System.Net.Http/4.3.1": {
+      "System.Net.Http/4.3.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -966,6 +966,7 @@
           "System.Runtime.Extensions": "4.3.0",
           "System.Runtime.Handles": "4.3.0",
           "System.Runtime.InteropServices": "4.3.0",
+          "System.Security.Cryptography.Encoding": "4.3.0",
           "System.Security.Cryptography.X509Certificates": "4.3.0",
           "System.Text.Encoding": "4.3.0",
           "System.Threading": "4.3.0",
@@ -2170,15 +2171,18 @@
         "runtime.json"
       ]
     },
-    "Microsoft.Rest.ClientRuntime/2.3.6": {
-      "sha512": "ron1488mZ2GA+Ls3IY6GgJtsZ8KC4hP4SEJz2lVJcuyJJi5JjBm2zFEo+U+MfFIVZVbFzctLvM5dqzYfvSXM8A==",
+    "Microsoft.Rest.ClientRuntime/2.3.7": {
+      "sha512": "17EPzwuVxh5R+Iz72JHSJ+TRJ3//QS66eNE1hpjiWp+POI3wAWYHk3qpxibgz3M6emC8yHVyG+W+ooiPIvZZ1g==",
       "type": "package",
-      "path": "microsoft.rest.clientruntime/2.3.6",
+      "path": "microsoft.rest.clientruntime/2.3.7",
       "files": [
-        "lib/net45/Microsoft.Rest.ClientRuntime.dll",
-        "lib/netstandard1.1/Microsoft.Rest.ClientRuntime.dll",
-        "lib/netstandard1.5/Microsoft.Rest.ClientRuntime.dll",
-        "microsoft.rest.clientruntime.2.3.6.nupkg.sha512",
+        "lib/net452/Microsoft.Rest.ClientRuntime.dll",
+        "lib/net452/Microsoft.Rest.ClientRuntime.runtimeconfig.json",
+        "lib/net452/Microsoft.Rest.ClientRuntime.xml",
+        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.dll",
+        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.runtimeconfig.json",
+        "lib/netstandard1.4/Microsoft.Rest.ClientRuntime.xml",
+        "microsoft.rest.clientruntime.2.3.7.nupkg.sha512",
         "microsoft.rest.clientruntime.nuspec"
       ]
     },
@@ -3533,13 +3537,11 @@
         "runtimes/aot/lib/netcore50/System.Linq.Expressions.dll"
       ]
     },
-    "System.Net.Http/4.3.1": {
-      "sha512": "UrTyRczM3ZvNk6oetBuwlu67MFKKRva+r7bw4JDVZ6Y2IukyZ24td5ppsieu/4yZlogVAIuZul9GIQ3hoiz0yA==",
+    "System.Net.Http/4.3.2": {
+      "sha512": "y7hv0o0weI0j0mvEcBOdt1F3CAADiWlcw3e54m8TfYiRmBPDIsHElx8QUPDlY4x6yWXKPGN0Z2TuXCTPgkm5WQ==",
       "type": "package",
-      "path": "system.net.http/4.3.1",
+      "path": "system.net.http/4.3.2",
       "files": [
-        "System.Net.Http.4.3.1.nupkg.sha512",
-        "System.Net.Http.nuspec",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/Xamarinmac20/_._",
@@ -3558,49 +3560,9 @@
         "ref/monotouch10/_._",
         "ref/net45/_._",
         "ref/net46/System.Net.Http.dll",
-        "ref/net46/System.Net.Http.xml",
-        "ref/net46/de/System.Net.Http.xml",
-        "ref/net46/es/System.Net.Http.xml",
-        "ref/net46/fr/System.Net.Http.xml",
-        "ref/net46/it/System.Net.Http.xml",
-        "ref/net46/ja/System.Net.Http.xml",
-        "ref/net46/ko/System.Net.Http.xml",
-        "ref/net46/ru/System.Net.Http.xml",
-        "ref/net46/zh-hans/System.Net.Http.xml",
-        "ref/net46/zh-hant/System.Net.Http.xml",
         "ref/netcore50/System.Net.Http.dll",
-        "ref/netcore50/System.Net.Http.xml",
-        "ref/netcore50/de/System.Net.Http.xml",
-        "ref/netcore50/es/System.Net.Http.xml",
-        "ref/netcore50/fr/System.Net.Http.xml",
-        "ref/netcore50/it/System.Net.Http.xml",
-        "ref/netcore50/ja/System.Net.Http.xml",
-        "ref/netcore50/ko/System.Net.Http.xml",
-        "ref/netcore50/ru/System.Net.Http.xml",
-        "ref/netcore50/zh-hans/System.Net.Http.xml",
-        "ref/netcore50/zh-hant/System.Net.Http.xml",
         "ref/netstandard1.1/System.Net.Http.dll",
-        "ref/netstandard1.1/System.Net.Http.xml",
-        "ref/netstandard1.1/de/System.Net.Http.xml",
-        "ref/netstandard1.1/es/System.Net.Http.xml",
-        "ref/netstandard1.1/fr/System.Net.Http.xml",
-        "ref/netstandard1.1/it/System.Net.Http.xml",
-        "ref/netstandard1.1/ja/System.Net.Http.xml",
-        "ref/netstandard1.1/ko/System.Net.Http.xml",
-        "ref/netstandard1.1/ru/System.Net.Http.xml",
-        "ref/netstandard1.1/zh-hans/System.Net.Http.xml",
-        "ref/netstandard1.1/zh-hant/System.Net.Http.xml",
         "ref/netstandard1.3/System.Net.Http.dll",
-        "ref/netstandard1.3/System.Net.Http.xml",
-        "ref/netstandard1.3/de/System.Net.Http.xml",
-        "ref/netstandard1.3/es/System.Net.Http.xml",
-        "ref/netstandard1.3/fr/System.Net.Http.xml",
-        "ref/netstandard1.3/it/System.Net.Http.xml",
-        "ref/netstandard1.3/ja/System.Net.Http.xml",
-        "ref/netstandard1.3/ko/System.Net.Http.xml",
-        "ref/netstandard1.3/ru/System.Net.Http.xml",
-        "ref/netstandard1.3/zh-hans/System.Net.Http.xml",
-        "ref/netstandard1.3/zh-hant/System.Net.Http.xml",
         "ref/portable-net45+win8+wpa81/_._",
         "ref/win8/_._",
         "ref/wpa81/_._",
@@ -3610,7 +3572,9 @@
         "runtimes/unix/lib/netstandard1.6/System.Net.Http.dll",
         "runtimes/win/lib/net46/System.Net.Http.dll",
         "runtimes/win/lib/netcore50/System.Net.Http.dll",
-        "runtimes/win/lib/netstandard1.3/System.Net.Http.dll"
+        "runtimes/win/lib/netstandard1.3/System.Net.Http.dll",
+        "system.net.http.4.3.2.nupkg.sha512",
+        "system.net.http.nuspec"
       ]
     },
     "System.Net.NetworkInformation/4.3.0": {
@@ -5859,15 +5823,17 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "Microsoft.Azure.Management.Batch.Fluent >= 1.0.0",
       "Microsoft.Azure.Management.Fluent >= 1.0.0",
+      "Microsoft.Azure.Management.Sql.Fluent >= 1.0.0",
       "Microsoft.IdentityModel.Clients.ActiveDirectory >= 3.13.9",
       "Microsoft.NETCore.Platforms >= 1.1.0",
       "Microsoft.NETCore.Portable.Compatibility >= 1.0.1",
-      "Microsoft.Rest.ClientRuntime >= 2.3.6",
+      "Microsoft.Rest.ClientRuntime >= 2.3.7",
       "NETStandard.Library >= 1.6.1",
       "System.ComponentModel >= 4.3.0",
       "System.Diagnostics.Tools >= 4.3.0",
-      "System.Net.Http >= 4.3.1",
+      "System.Net.Http >= 4.3.2",
       "System.Runtime.Serialization.Primitives >= 4.3.0",
       "System.Threading.Tasks >= 4.3.0"
     ],
@@ -5885,15 +5851,17 @@
       "projectStyle": "ProjectJson"
     },
     "dependencies": {
+      "Microsoft.Azure.Management.Batch.Fluent": "1.0.0",
       "Microsoft.Azure.Management.Fluent": "1.0.0",
+      "Microsoft.Azure.Management.Sql.Fluent": "1.0.0",
       "Microsoft.IdentityModel.Clients.ActiveDirectory": "3.13.9",
       "Microsoft.NETCore.Platforms": "1.1.0",
       "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
-      "Microsoft.Rest.ClientRuntime": "2.3.6",
+      "Microsoft.Rest.ClientRuntime": "2.3.7",
       "NETStandard.Library": "1.6.1",
       "System.ComponentModel": "4.3.0",
       "System.Diagnostics.Tools": "4.3.0",
-      "System.Net.Http": "4.3.1",
+      "System.Net.Http": "4.3.2",
       "System.Runtime.Serialization.Primitives": "4.3.0",
       "System.Threading.Tasks": "4.3.0"
     },

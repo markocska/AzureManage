@@ -42,6 +42,7 @@ namespace AzureManagementLib
                 using (var loginClient = new HttpClient())
                 {
                     AuthenticationContext authContex = new AuthenticationContext(Authority);
+
                     // var param = new PlatformParameters();
                     authContex.ExtendedLifeTimeEnabled = false;
 
@@ -52,8 +53,6 @@ namespace AzureManagementLib
                     results.Add("token", authResult.AccessToken);
                     results.Add("tenant", authResult.TenantId);
                     
-
-
                     return results;
                 }
             } catch (Exception ex)

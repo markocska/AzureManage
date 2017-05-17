@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+  <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+    <ImageView
+        android:layout_height="70dp"
+        android:layout_width="90dp"
+        android:id="@+id/resourceImage" />
+    <TextView
+        android:layout_height="20dp"
+        android:layout_width="90dp"
+        android:id="@+id/resourceName"
+        android:textAlignment="center" />
+  </LinearLayout>
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="171.0dp"
+        android:id="@+id/resourceGroupName"
+        android:textAlignment="center" />
+    <Button
+        android:text="Quick Action"
+        android:id="@+id/resourceActionButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
+  </LinearLayout>
+</merge>

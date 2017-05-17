@@ -24,6 +24,7 @@ namespace AzureManagementLib.Services
 
             AuthenticatedAzureList = AzureTenantContainer.LoggedInTenants;
             sqlServicePlans.Clear();
+            
 
             foreach (var azure in AuthenticatedAzureList)
             {

@@ -5,12 +5,10 @@
   <item android:id="@+id/action_name"
         android:title="Name"/>
   <item android:id="@+id/action_resourceGroup"
-         android:showAsAction="always"
         android:title="Resource Group"/>
   <item android:id="@+id/action_type"
         android:title="Type"/>
   <item android:id="@+id/action_region"
-         android:showAsAction="always"
         android:title="Region"/>
   
 </menu>
